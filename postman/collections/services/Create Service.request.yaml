@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/admin/services/createService
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\":\"Denting & painting\",\r
+
+    \    \"description\":\" Repairing body scratches, dents, and repainting.\",\r
+
+    \    \"icon\":\"\"\r
+
+    \r
+
+    \r
+
+    }"
+order: 1788895976018

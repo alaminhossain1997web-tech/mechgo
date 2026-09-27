@@ -1,0 +1,39 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/create-profile/tecnicianprofile
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"shopname\": \"Car doctor hub\",\r
+
+    \  \"phone\": \"01712345678\",\r
+
+    \  \"services\": [\r
+
+    \    \"6aa06834472c0bba2f8f9700\",\r
+
+    \    \"6aa067f4472c0bba2f8f96ff\",\r
+
+    \    \"6aa06867472c0bba2f8f9701\",\r
+
+    \    \"6aa0673b472c0bba2f8f96f9\"\r
+
+    \  ],\r
+
+    \  \"location\": {\r
+
+    \    \"type\": \"Point\",\r
+
+    \    \"coordinates\": [\r
+
+    \      90.4126,\r
+
+    \      23.810\r
+
+    \    ]\r
+
+    \  }\r
+
+    }"
+order: 1788893681729

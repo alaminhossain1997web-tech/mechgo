@@ -1,0 +1,27 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/request/driver-request
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"serviceId\": \"6aa067f4472c0bba2f8f96ff\",\r
+
+    \  \"location\": {\r
+
+    \    \"type\": \"Point\",\r
+
+    \    \"coordinates\": [\r
+
+    \      90.4125,\r
+
+    \      23.8103\r
+
+    \    ]\r
+
+    \  },\r
+
+    \  \"description\": \"Fixing headlights, indicators, and electrical faults.\"\r
+
+    }"
+order: 1789760498969

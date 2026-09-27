@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/admin/services/getallService
+method: GET
+order: 2106527535070310
