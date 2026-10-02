@@ -1,7 +1,7 @@
 const express =require("express");
-const DriverRequest = require("./createDriverRequest")
+const findTechnician =require("./FindTechnician")
 const router = express.Router()
 
- router.use("/request",DriverRequest)
+ router.use("/request",findTechnician)
 
 module.exports = router

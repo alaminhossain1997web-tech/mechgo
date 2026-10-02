@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: ["Rider", "Technician"],
-      default: "rider",
+      default: "Rider",
     },
   },
   {
