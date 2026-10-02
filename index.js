@@ -5,11 +5,12 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const dbConnect = require("./config/dbConfig");
-const router = require("./routes");
+const router = require("./routes/index");
 
 const app = express();
 
 const PORT = process.env.PORT || 8000;
+
 const allowedOrigins = [
   "http://localhost:5173",
 ];
@@ -17,7 +18,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // for Postman / server-to-server request
+      // Postman / server-to-server request
       if (!origin) {
         return callback(null, true);
       }
@@ -36,10 +37,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-// ==========================================
 // Health Check
-// ==========================================
-
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
@@ -47,9 +45,13 @@ app.get("/", (req, res) => {
   });
 });
 
+// API Routes
 app.use(router);
+
+// Database
 dbConnect();
 
+// Server
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`PothSeba server is running on port: ${PORT}`);
 });
