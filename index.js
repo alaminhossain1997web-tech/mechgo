@@ -1,23 +1,55 @@
 require("./config/env");
-const express =require("express");
+
+const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
 const dbConnect = require("./config/dbConfig");
-const cors =  require("cors");
 const router = require("./routes");
-const app = express()
-const port = process.env.PORT
+
+const app = express();
+
+const PORT = process.env.PORT || 8000;
+const allowedOrigins = [
+  "http://localhost:5173",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      // for Postman / server-to-server request
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+
     credentials: true,
   })
 );
-app.use(express.json())
+
+app.use(express.json());
 app.use(cookieParser());
-app.use(router)
+
+// ==========================================
+// Health Check
+// ==========================================
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "PothSeba Backend is running",
+  });
+});
+
+app.use(router);
 dbConnect();
 
-
-app.listen(port, "0.0.0.0",(req,res)=>{
-    console.log(`server is running on port: ${port}`)
-})
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`PothSeba server is running on port: ${PORT}`);
+});
