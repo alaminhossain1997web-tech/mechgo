@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 8000;
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://pothseba.netlify.app",
 ];
 
 app.use(
@@ -37,7 +38,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-// Health Check
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
@@ -45,13 +45,9 @@ app.get("/", (req, res) => {
   });
 });
 
-// API Routes
 app.use(router);
-
-// Database
 dbConnect();
 
-// Server
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`PothSeba server is running on port: ${PORT}`);
 });
