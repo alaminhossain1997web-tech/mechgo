@@ -18,6 +18,6 @@ app.use(router)
 dbConnect();
 
 
-app.listen(port,(req,res)=>{
+app.listen(port, "0.0.0.0",(req,res)=>{
     console.log(`server is running on port: ${port}`)
 })

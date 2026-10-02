@@ -1,8 +1,7 @@
 const express =require("express");
-const createService = require("./createService");
+const getallService= require("./getAllService")
 const router = express.Router()
 
- router.use("/services",createService)
-
+ router.use("/allservice",getallService)
 
 module.exports = router
