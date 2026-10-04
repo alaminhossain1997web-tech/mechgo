@@ -265,10 +265,7 @@ const findTechnicianController = async (req, res) => {
     // ERROR
     // =====================================================
 
-    console.error(
-      "================================="
-    );
-
+   
     console.error(
       "FIND TECHNICIAN CONTROLLER ERROR"
     );
@@ -283,9 +280,7 @@ const findTechnicianController = async (req, res) => {
       error.stack
     );
 
-    console.error(
-      "================================="
-    );
+    
 
     return res.status(500).json({
       success: false,
