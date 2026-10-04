@@ -89,7 +89,9 @@ const loginController = async (req, res) => {
     res.cookie("accessToken", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      // Netlify and the API are on different sites in production, so the
+      // browser requires SameSite=None + Secure to send this cookie.
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     });
 
     // =========================

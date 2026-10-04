@@ -18,7 +18,15 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: "https://pothseba.netlify.app",
+    origin(origin, callback) {
+      // Requests without an Origin header (for example curl/Postman) are not
+      // subject to browser CORS checks.
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Origin is not allowed by CORS"));
+    },
     credentials: true,
   })
 );
