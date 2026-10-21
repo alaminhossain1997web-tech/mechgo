@@ -86,12 +86,16 @@ const loginController = async (req, res) => {
     // Set Cookie
     // =========================
 
+    const isHttpsRequest =
+      req.secure || req.get("x-forwarded-proto") === "https";
+
     res.cookie("accessToken", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      // Netlify and the API are on different sites in production, so the
-      // browser requires SameSite=None + Secure to send this cookie.
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: isHttpsRequest,
+      // The deployed frontend and API are cross-site, so HTTPS requests need
+      // a cross-site cookie regardless of NODE_ENV being configured.
+      sameSite: isHttpsRequest ? "none" : "lax",
+      path: "/",
     });
 
     // =========================

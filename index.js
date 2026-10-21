@@ -42,8 +42,13 @@ app.get("/", (req, res) => {
 });
 
 app.use(router);
-dbConnect();
-
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`PothSeba server is running on port: ${PORT}`);
-});
+dbConnect()
+  .then(() => {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`PothSeba server is running on port: ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Database connection failed:", error.message);
+    process.exit(1);
+  });

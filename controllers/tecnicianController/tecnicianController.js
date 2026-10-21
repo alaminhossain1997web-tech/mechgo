@@ -144,6 +144,7 @@ const tecnicianController = async (req, res) => {
 
     const result = await tecnicianSchema
       .findById(technician._id)
+      .populate("userId", "name email role")
       .populate("services");
 
     // =========================

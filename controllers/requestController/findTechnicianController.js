@@ -1,13 +1,10 @@
-const Technician = require("../../models/tecnicianSchema/tecnicianSchema");
 
+const Technician = require("../../models/tecnicianSchema/tecnicianSchema");
 const reverseGeocode = require("../../helpers/reverseGeocode");
 
 const findTechnicianController = async (req, res) => {
   try {
-    // =====================================================
-    // USER
-    // =====================================================
-
+    // 1. Authentication
     if (!req.user?._id) {
       return res.status(401).json({
         success: false,
@@ -17,27 +14,15 @@ const findTechnicianController = async (req, res) => {
 
     const userId = req.user._id;
 
-    console.log("=================================");
-    console.log("FIND TECHNICIAN");
-    console.log("User ID:", userId);
-    console.log("=================================");
-
-    // =====================================================
-    // QUERY
-    // =====================================================
-
+    // 2. Get and validate coordinates
     const { longitude, latitude } = req.query;
 
-    console.log("Received query:", {
-      longitude,
-      latitude,
-    });
-
-    // =====================================================
-    // VALIDATION
-    // =====================================================
-
-    if (longitude === undefined || latitude === undefined) {
+    if (
+      longitude === undefined ||
+      latitude === undefined ||
+      longitude === "" ||
+      latitude === ""
+    ) {
       return res.status(400).json({
         success: false,
         message: "Longitude and latitude are required",
@@ -49,15 +34,7 @@ const findTechnicianController = async (req, res) => {
 
     if (
       !Number.isFinite(longitudeNumber) ||
-      !Number.isFinite(latitudeNumber)
-    ) {
-      return res.status(400).json({
-        success: false,
-        message: "Longitude and latitude must be valid numbers",
-      });
-    }
-
-    if (
+      !Number.isFinite(latitudeNumber) ||
       longitudeNumber < -180 ||
       longitudeNumber > 180 ||
       latitudeNumber < -90 ||
@@ -69,21 +46,13 @@ const findTechnicianController = async (req, res) => {
       });
     }
 
-    // =====================================================
-    // USER LOCATION
-    // =====================================================
-
+    // GeoJSON coordinates must be [longitude, latitude]
     const userCoordinates = [
       longitudeNumber,
       latitudeNumber,
     ];
 
-    console.log("User coordinates:", userCoordinates);
-
-    // =====================================================
-    // REVERSE GEOCODING
-    // =====================================================
-
+    // 3. Reverse geocoding
     let locationData = {
       address: "",
       place: "",
@@ -92,49 +61,35 @@ const findTechnicianController = async (req, res) => {
     };
 
     try {
-      locationData = await reverseGeocode(
+      const result = await reverseGeocode(
         longitudeNumber,
         latitudeNumber
       );
 
-      console.log(
-        "Reverse geocoding successful:",
-        locationData
-      );
-    } catch (reverseError) {
-      console.error(
-        "Reverse geocoding failed:",
-        reverseError.message
-      );
-
-      // Reverse geocoding fail করলেও
-      // technician search বন্ধ হবে না
+      if (result && typeof result === "object") {
+        locationData = {
+          address: result.address || "",
+          place: result.place || "",
+          district: result.district || "",
+          country: result.country || "",
+        };
+      }
+    } catch (error) {
+      // Reverse geocoding failure should not stop technician search
+      console.error("Reverse geocoding failed:", error.message);
     }
 
-    // =====================================================
-    // FIND ALL NEARBY TECHNICIANS
-    // =====================================================
-
-    console.log("Searching nearby technicians...");
-
+    // 4. Find nearby available technicians
     const technicians = await Technician.aggregate([
-      // =====================================================
-      // GEO SEARCH
-      // =====================================================
-
       {
         $geoNear: {
           near: {
             type: "Point",
             coordinates: userCoordinates,
           },
-
           distanceField: "distance",
-
           spherical: true,
-
           maxDistance: 5000,
-
           query: {
             isOnline: true,
             isAvailable: true,
@@ -143,10 +98,7 @@ const findTechnicianController = async (req, res) => {
         },
       },
 
-      // =====================================================
-      // GET SERVICE DETAILS
-      // =====================================================
-
+      // Join service documents
       {
         $lookup: {
           from: "services",
@@ -155,139 +107,86 @@ const findTechnicianController = async (req, res) => {
           as: "serviceDetails",
         },
       },
+
+      // Optional: ensure predictable nearest-first order
+      {
+        $sort: {
+          distance: 1,
+        },
+      },
     ]);
 
-    console.log(
-      "Technicians found:",
-      technicians.length
-    );
+    // 5. Shared rider location information
+    const driverLocation = {
+      address: locationData.address,
+      place: locationData.place,
+      district: locationData.district,
+      country: locationData.country,
+      coordinates: userCoordinates,
+    };
 
-    // =====================================================
-    // NO TECHNICIAN
-    // =====================================================
-
+    // 6. No technicians found
     if (technicians.length === 0) {
       return res.status(200).json({
         success: true,
-
         message: "No technician found nearby",
-
         data: {
           technicians: [],
-
           total: 0,
-
-          driverLocation: {
-            address: locationData?.address || "",
-            place: locationData?.place || "",
-            district: locationData?.district || "",
-            country: locationData?.country || "",
-
-            coordinates: userCoordinates,
-          },
+          driverLocation,
         },
       });
     }
 
-    // =====================================================
-    // FORMAT TECHNICIANS
-    // =====================================================
-
+    // 7. Format technician data
     const formattedTechnicians = technicians.map(
       (technician) => {
-        const distanceInKm =
-          technician.distance / 1000;
+        const distanceInKm = technician.distance / 1000;
 
         return {
+          // Use this ID as technicianId when creating a request
           id: technician._id,
 
           shopname: technician.shopname || "",
-
           phone: technician.phone || "",
-
           address: technician.address || "",
 
-          // =================================================
-          // SERVICE NAMES
-          // =================================================
-
-          services:
-            technician.serviceDetails?.map(
-              (service) => service.name
-            ) || [],
+          // Include service IDs so the rider can select a service
+          services: (technician.serviceDetails || []).map(
+            (service) => ({
+              id: service._id,
+              name: service.name || "",
+            })
+          ),
 
           location: technician.location,
 
-          distance: Number(
-            distanceInKm.toFixed(2)
-          ),
-
-          distanceText: `${distanceInKm.toFixed(
-            2
-          )} km`,
+          distance: Number(distanceInKm.toFixed(2)),
+          distanceText: `${distanceInKm.toFixed(2)} km`,
 
           isOnline: technician.isOnline,
-
           isAvailable: technician.isAvailable,
-
-          verificationStatus:
-            technician.verificationStatus,
+          verificationStatus: technician.verificationStatus,
         };
       }
     );
 
-    // =====================================================
-    // RESPONSE
-    // =====================================================
-
+    // 8. Success response
     return res.status(200).json({
       success: true,
-
       message: "Nearby technicians found successfully",
-
       data: {
         technicians: formattedTechnicians,
-
         total: formattedTechnicians.length,
-
-        driverLocation: {
-          address: locationData?.address || "",
-          place: locationData?.place || "",
-          district: locationData?.district || "",
-          country: locationData?.country || "",
-
-          coordinates: userCoordinates,
-        },
+        driverLocation,
       },
     });
   } catch (error) {
-    // =====================================================
-    // ERROR
-    // =====================================================
-
-   
-    console.error(
-      "FIND TECHNICIAN CONTROLLER ERROR"
-    );
-
-    console.error(
-      "Message:",
-      error.message
-    );
-
-    console.error(
-      "Stack:",
-      error.stack
-    );
-
-    
+    console.error("FIND TECHNICIAN CONTROLLER ERROR:", error);
 
     return res.status(500).json({
       success: false,
-
       message: "Internal server error",
-
-      error: error.message,
     });
   }
 };

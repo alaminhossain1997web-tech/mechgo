@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/request/createRequest
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"technicianId\": \"6aad9ed85cd14e1a2e54eb36\",\r
+
+    \  \"serviceId\": \"6aa06834472c0bba2f8f9700\",\r
+
+    \  \"location\": {\r
+
+    \    \"type\": \"Point\",\r
+
+    \    \"coordinates\": [90.4125, 23.8103]\r
+
+    \  },\r
+
+    \  \"description\": \"আমার গাড়ির ইঞ্জিনে সমস্যা হচ্ছে। সাহায্য প্রয়োজন।\"\r
+
+    }"
+order: 1789760499969

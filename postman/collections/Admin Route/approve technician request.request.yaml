@@ -1,4 +1,13 @@
 $kind: http-request
-url: ""
-method: GET
+url: http://localhost:8000/api/v1/auth/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"alaminhossain1997.web@gmail.com\",\r
+
+    \  \"otp\": \"865885\"\r
+
+    }"
 order: 1790968569617

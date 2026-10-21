@@ -1,16 +1,9 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+const { requiredEnv } = require("./env");
 
-const db_url = process.env.DB_URL;
-
-const dbConnect= ()=>{
-    mongoose.connect(db_url).then(()=>{
-        console.log("database connected");
-        
-    }).catch(()=>{
-        console.log("database connection failed");
-        
-    })
-    
-}
+const dbConnect = async () => {
+  const connection = await mongoose.connect(requiredEnv("DB_URL"));
+  console.log(`Database connected: ${connection.connection.name}`);
+};
 
 module.exports = dbConnect

@@ -5,17 +5,17 @@
         type:String,
         required:true,
         unique:true,
-        trime:true
+        trim:true
     },
     description:{
         type:String,
-        trime:true,
+        trim:true,
         default : ""
     },
     icon:{
         type:String,
         default:"",
-        trime:true
+        trim:true
     },
     isActive:{
         type:Boolean,

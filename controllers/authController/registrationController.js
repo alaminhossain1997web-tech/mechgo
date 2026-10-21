@@ -24,15 +24,21 @@ const registrationController = async (req, res) => {
       });
     }
 
-    const existingUser = await userSchema.findOne({email})
-    if(existingUser){
-        res.status(409).json({
+    const normalizedEmail = email.trim().toLowerCase();
+    const existingUser = await userSchema.findOne({ email: normalizedEmail });
+    if (existingUser) {
+        return res.status(409).json({
             status: "fail",
             message: "This user already exists"
         })
     }
 
-    const user = await userSchema.create({name,email,password,role:role})
+    const user = await userSchema.create({
+      name: name.trim(),
+      email: normalizedEmail,
+      password,
+      role,
+    });
     await res.status(200).json({
         success : true,
         message: "registration successfull",

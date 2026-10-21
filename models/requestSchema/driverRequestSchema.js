@@ -1,49 +1,66 @@
+
 const mongoose = require("mongoose");
 
-const driverRequestSchema = new mongoose.Schema({
-    userId:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
-        required: true
+const driverRequestSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-    technicianId:{ 
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Technician",
-        required: true,
+
+    technicianId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Technician",
+      required: true,
     },
+
     serviceId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "services",
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "services",
+      required: true,
     },
-    location:{
-        type: {
+
+    location: {
+      type: {
         type: String,
         enum: ["Point"],
         default: "Point",
       },
-
-        coordinates: {
+      coordinates: {
         type: [Number],
         required: true,
+        validate: {
+          validator: (coordinates) =>
+            Array.isArray(coordinates) &&
+            coordinates.length === 2 &&
+            coordinates.every(Number.isFinite) &&
+            coordinates[0] >= -180 &&
+            coordinates[0] <= 180 &&
+            coordinates[1] >= -90 &&
+            coordinates[1] <= 90,
+          message: "Invalid longitude or latitude",
+        },
       },
     },
 
-      description: {
+    description: {
       type: String,
+      required: true,
+      trim: true,
+      maxlength: 1000,
     },
-     status: {
+
+    status: {
       type: String,
       enum: ["pending", "accepted", "rejected", "completed"],
       default: "pending",
     },
-    
-},
-
-  {
-    timestamps: true,
-  }
-
+  },
+  { timestamps: true }
 );
-module.exports = mongoose.model("driverRequest", driverRequestSchema)
 
+driverRequestSchema.index({ technicianId: 1, status: 1 });
+driverRequestSchema.index({ userId: 1, createdAt: -1 });
+
+module.exports = mongoose.model("driverRequest", driverRequestSchema);
