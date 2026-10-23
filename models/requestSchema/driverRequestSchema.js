@@ -58,23 +58,30 @@ const driverRequestSchema = new mongoose.Schema(
     },
 
     // Temporary per-request GPS position; never modify Technician.location.
+
+    // Temporary GPS position; optional when creating a request.
     liveLocation: {
       coordinates: {
         type: [Number],
+        default: undefined,
         validate: {
           validator: (coordinates) =>
-            Array.isArray(coordinates) &&
-            coordinates.length === 2 &&
-            coordinates.every(Number.isFinite) &&
-            coordinates[0] >= -180 &&
-            coordinates[0] <= 180 &&
-            coordinates[1] >= -90 &&
-            coordinates[1] <= 90,
+            coordinates === undefined ||
+            (
+              Array.isArray(coordinates) &&
+              coordinates.length === 2 &&
+              coordinates.every(Number.isFinite) &&
+              coordinates[0] >= -180 &&
+              coordinates[0] <= 180 &&
+              coordinates[1] >= -90 &&
+              coordinates[1] <= 90
+            ),
           message: "Invalid live location coordinates",
         },
       },
       updatedAt: Date,
     },
+
   },
   { timestamps: true }
 );
