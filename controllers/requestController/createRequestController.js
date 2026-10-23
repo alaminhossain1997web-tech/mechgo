@@ -15,8 +15,12 @@ const createRequestController = async (req, res) => {
         message: "Unauthorized request",
       });
     }
+
     if (req.user.role !== "Rider") {
-      return res.status(403).json({ success: false, message: "Rider account required" });
+      return res.status(403).json({
+        success: false,
+        message: "Rider account required",
+      });
     }
 
     const { technicianId, serviceId, location, description } = req.body;
@@ -30,7 +34,8 @@ const createRequestController = async (req, res) => {
     ) {
       return res.status(400).json({
         success: false,
-        message: "Technician, service, location and description are required",
+        message:
+          "Technician, service, location and description are required",
       });
     }
 
@@ -98,9 +103,10 @@ const createRequestController = async (req, res) => {
       });
     }
 
+    // Save the request first. Database persistence is authoritative.
     const request = await DriverRequest.create({
       userId: req.user._id,
-      technicianId,
+      technicianId: technician._id,
       serviceId,
       location: {
         type: "Point",
@@ -110,32 +116,70 @@ const createRequestController = async (req, res) => {
       status: "pending",
     });
 
-    // Database persistence is authoritative; socket delivery is best effort.
+    // Send the new request to the assigned technician in real time.
     try {
       const [rider, service] = await Promise.all([
         User.findById(req.user._id).select("name"),
         Service.findById(serviceId).select("name"),
       ]);
-      getIO()?.to(`technician:${technician._id}`).emit("request:new", {
+
+      const requestForSocket = {
+        ...request.toObject(),
+
+        _id: request._id.toString(),
         requestId: request._id.toString(),
-        rider: { id: req.user._id.toString(), name: rider?.name || "" },
+
+        userId: req.user._id.toString(),
         riderId: req.user._id.toString(),
+
+        rider: {
+          _id: req.user._id.toString(),
+          id: req.user._id.toString(),
+          name: rider?.name || "",
+        },
+
         technicianId: technician._id.toString(),
+
         serviceId: serviceId.toString(),
+
+        service: {
+          _id: serviceId.toString(),
+          id: serviceId.toString(),
+          name: service?.name || "",
+        },
+
         serviceName: service?.name || "",
         description: request.description,
         location: request.location,
         status: request.status,
         createdAt: request.createdAt,
-      });
+      };
+
+      const io = getIO();
+
+      if (io) {
+        io.to(`technician:${technician._id.toString()}`).emit(
+          "request:new",
+          requestForSocket
+        );
+
+        console.info(
+          `New request ${request._id} emitted to technician ${technician._id}`
+        );
+      } else {
+        console.error("Socket.IO instance is not initialized.");
+      }
     } catch (socketError) {
-      console.error("REQUEST EVENT ERROR:", socketError.message);
+      // A socket failure should not undo a saved request.
+      console.error("REQUEST EVENT ERROR:", socketError);
     }
 
     return res.status(201).json({
       success: true,
       message: "Service request sent successfully",
-      data: { request },
+      data: {
+        request,
+      },
     });
   } catch (error) {
     console.error("CREATE REQUEST ERROR:", error);
@@ -148,3 +192,4 @@ const createRequestController = async (req, res) => {
 };
 
 module.exports = createRequestController;
+s
