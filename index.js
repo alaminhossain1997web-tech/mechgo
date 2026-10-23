@@ -3,11 +3,15 @@ require("./config/env");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const http = require("http");
 
 const dbConnect = require("./config/dbConfig");
 const router = require("./routes/index");
+const { initializeSocket } = require("./config/socket");
 
 const app = express();
+const httpServer = http.createServer(app);
+initializeSocket(httpServer);
 
 const PORT = process.env.PORT || 8000;
 
@@ -44,7 +48,7 @@ app.get("/", (req, res) => {
 app.use(router);
 dbConnect()
   .then(() => {
-    app.listen(PORT, "0.0.0.0", () => {
+    httpServer.listen(PORT, "0.0.0.0", () => {
       console.log(`PothSeba server is running on port: ${PORT}`);
     });
   })

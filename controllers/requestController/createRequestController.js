@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 
 const Technician = require("../../models/tecnicianSchema/tecnicianSchema");
 const DriverRequest = require("../../models/requestSchema/driverRequestSchema");
+const User = require("../../models/authSchema/userSchema");
+const Service = require("../../models/serviceSchema/serviceSchema");
+const { getIO } = require("../../config/socket");
 
 const createRequestController = async (req, res) => {
   try {
@@ -11,6 +14,9 @@ const createRequestController = async (req, res) => {
         success: false,
         message: "Unauthorized request",
       });
+    }
+    if (req.user.role !== "Rider") {
+      return res.status(403).json({ success: false, message: "Rider account required" });
     }
 
     const { technicianId, serviceId, location, description } = req.body;
@@ -103,6 +109,28 @@ const createRequestController = async (req, res) => {
       description: description.trim(),
       status: "pending",
     });
+
+    // Database persistence is authoritative; socket delivery is best effort.
+    try {
+      const [rider, service] = await Promise.all([
+        User.findById(req.user._id).select("name"),
+        Service.findById(serviceId).select("name"),
+      ]);
+      getIO()?.to(`technician:${technician._id}`).emit("request:new", {
+        requestId: request._id.toString(),
+        rider: { id: req.user._id.toString(), name: rider?.name || "" },
+        riderId: req.user._id.toString(),
+        technicianId: technician._id.toString(),
+        serviceId: serviceId.toString(),
+        serviceName: service?.name || "",
+        description: request.description,
+        location: request.location,
+        status: request.status,
+        createdAt: request.createdAt,
+      });
+    } catch (socketError) {
+      console.error("REQUEST EVENT ERROR:", socketError.message);
+    }
 
     return res.status(201).json({
       success: true,
