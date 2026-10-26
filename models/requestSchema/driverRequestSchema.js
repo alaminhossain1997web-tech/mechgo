@@ -53,7 +53,7 @@ const driverRequestSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["pending", "accepted", "rejected", "completed"],
+      enum: ["pending","accepted","rejected","on_the_way","in_progress","completed","cancelled",],
       default: "pending",
     },
 

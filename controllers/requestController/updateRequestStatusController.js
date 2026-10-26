@@ -1,49 +1,151 @@
+
 const mongoose = require("mongoose");
 const Technician = require("../../models/tecnicianSchema/tecnicianSchema");
 const DriverRequest = require("../../models/requestSchema/driverRequestSchema");
 const { getIO } = require("../../config/socket");
 
+const allowedTransitions = {
+  pending: ["accepted", "rejected"],
+  accepted: ["on_the_way"],
+  on_the_way: ["in_progress"],
+  in_progress: ["completed"],
+};
+
+// Riders may withdraw a request before work starts. Once the Technician is
+// travelling or has started work, cancellation must be handled operationally.
+const riderCancellationStatuses = ["pending", "accepted"];
+
 const updateRequestStatusController = async (req, res) => {
   try {
-    if (req.user?.role !== "Technician") {
-      return res.status(403).json({ success: false, message: "Technician account required" });
-    }
+    if (!req.user?._id) return res.status(401).json({ success: false, message: "Unauthorized request" });
+
     const { requestId } = req.params;
     const { status } = req.body || {};
+
     if (!mongoose.isValidObjectId(requestId)) {
-      return res.status(400).json({ success: false, message: "Invalid request ID" });
+      return res.status(400).json({
+        success: false,
+        message: "Invalid request ID",
+      });
     }
-    if (!["accepted", "rejected"].includes(status)) {
-      return res.status(400).json({ success: false, message: "Status must be accepted or rejected" });
+
+    const validStatuses = [
+      "accepted",
+      "rejected",
+      "on_the_way",
+      "in_progress",
+      "completed",
+      "cancelled",
+    ];
+
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid request status",
+      });
     }
-    const technician = await Technician.findOne({ userId: req.user._id }).select("_id");
-    if (!technician) {
-      return res.status(404).json({ success: false, message: "Technician profile not found" });
+
+    const isRider = req.user.role === "Rider";
+    const isTechnician = req.user.role === "Technician";
+    if (!isRider && !isTechnician) return res.status(403).json({ success: false, message: "Rider or Technician account required" });
+
+    let technician = null;
+    let ownership = { userId: req.user._id };
+    if (isTechnician) {
+      technician = await Technician.findOne({ userId: req.user._id }).select("_id");
+      if (!technician) return res.status(404).json({ success: false, message: "Technician profile not found" });
+      ownership = { technicianId: technician._id };
     }
+
+    const existingRequest = await DriverRequest.findOne({ _id: requestId, ...ownership }).select("status userId technicianId");
+
+    if (!existingRequest) {
+      return res.status(404).json({
+        success: false,
+        message: "Request not found",
+      });
+    }
+
+    const currentStatus = existingRequest.status;
+    const allowed = isRider && status === "cancelled"
+      ? riderCancellationStatuses.includes(currentStatus)
+      : isTechnician && status !== "cancelled"
+        ? (allowedTransitions[currentStatus] || []).includes(status)
+        : false;
+
+    if (!allowed) {
+      return res.status(409).json({
+        success: false,
+        message: isRider
+          ? `Riders may cancel only pending or accepted requests (current: ${currentStatus})`
+          : `Cannot change request from ${currentStatus} to ${status}`,
+      });
+    }
+
+    // Atomic conditional update prevents conflicting transitions.
     const request = await DriverRequest.findOneAndUpdate(
-      { _id: requestId, technicianId: technician._id, status: "pending" },
-      { $set: { status } },
-      { new: true, runValidators: true }
-    );
+      {
+        _id: requestId,
+        ...ownership,
+        status: currentStatus,
+      },
+      {
+        $set: { status },
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    )
+      .populate("technicianId", "shopname phone")
+      .populate("serviceId", "name");
+
     if (!request) {
-      const ownedRequest = await DriverRequest.exists({ _id: requestId, technicianId: technician._id });
-      if (!ownedRequest) return res.status(404).json({ success: false, message: "Request not found" });
-      return res.status(409).json({ success: false, message: "Request has already been processed" });
+      return res.status(409).json({
+        success: false,
+        message: "Request changed concurrently. Refresh and try again.",
+      });
     }
+
     const payload = {
       requestId: request._id.toString(),
-      status: request.status,
       riderId: request.userId.toString(),
-      technicianId: technician._id.toString(),
-      createdAt: request.createdAt,
+      technicianId: existingRequest.technicianId.toString(),
+      status: request.status,
       updatedAt: request.updatedAt,
     };
-    getIO()?.to(`technician:${technician._id}`).emit("request:updated", payload);
-    getIO()?.to(`rider:${request.userId}`).emit("request:updated", payload);
-    return res.status(200).json({ success: true, message: "Request status updated", data: { request } });
+
+    // A Socket.IO failure must not undo the saved database update.
+    try {
+      const io = getIO();
+
+      if (io) {
+        io.to(`rider:${request.userId}`).emit(
+          "request:updated",
+          payload
+        );
+
+        io.to(`technician:${existingRequest.technicianId}`).emit(
+          "request:updated",
+          payload
+        );
+      }
+    } catch (socketError) {
+      console.error("REQUEST STATUS SOCKET ERROR:", socketError);
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Request status updated successfully",
+      data: { request },
+    });
   } catch (error) {
     console.error("UPDATE REQUEST STATUS ERROR:", error);
-    return res.status(500).json({ success: false, message: "Failed to update request status" });
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to update request status",
+    });
   }
 };
 

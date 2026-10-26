@@ -3,6 +3,9 @@ const DriverRequest = require("../../models/requestSchema/driverRequestSchema");
 
 const getTechnicianRequestsController = async (req, res) => {
   try {
+    if (req.user?.role !== "Technician") {
+      return res.status(403).json({ success: false, message: "Technician account required" });
+    }
     const technician = await Technician.findOne({
       userId: req.user._id,
     });
@@ -16,9 +19,8 @@ const getTechnicianRequestsController = async (req, res) => {
 
     const requests = await DriverRequest.find({
       technicianId: technician._id,
-      status: "pending",
     })
-      .populate("userId", "name phone email")
+      .populate("userId", "name")
       .populate("serviceId", "name")
       .sort({ createdAt: -1 });
 

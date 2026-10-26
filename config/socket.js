@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const DriverRequest = require("../models/requestSchema/driverRequestSchema");
 
 const LOCATION_UPDATE_INTERVAL_MS = 3000;
+const TRACKABLE_REQUEST_STATUSES = ["accepted", "on_the_way", "in_progress"];
 
 const rejectLocation = (socket, ack, code, message) => {
   const error = { code, message };
@@ -40,7 +41,7 @@ const handleLocationUpdate = async (socket, payload, ack) => {
       {
         _id: requestId,
         technicianId: socket.data.technicianId,
-        status: "accepted",
+        status: { $in: TRACKABLE_REQUEST_STATUSES },
         $or: [
           { "liveLocation.updatedAt": { $lte: new Date(now - LOCATION_UPDATE_INTERVAL_MS) } },
           { "liveLocation.updatedAt": { $exists: false } },
@@ -53,7 +54,7 @@ const handleLocationUpdate = async (socket, payload, ack) => {
       const activeRequest = await DriverRequest.exists({
         _id: requestId,
         technicianId: socket.data.technicianId,
-        status: "accepted",
+        status: { $in: TRACKABLE_REQUEST_STATUSES },
       });
       if (activeRequest) {
         return rejectLocation(socket, ack, "RATE_LIMITED", "Location updates must be at least 3 seconds apart");

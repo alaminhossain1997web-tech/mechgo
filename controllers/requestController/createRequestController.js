@@ -85,6 +85,11 @@ const createRequestController = async (req, res) => {
       verificationStatus: "approved",
     });
 
+    const service = await Service.findOne({ _id: serviceId, isActive: true }).select("_id name");
+    if (!service) {
+      return res.status(404).json({ success: false, message: "Service not found or inactive" });
+    }
+
     if (!technician) {
       return res.status(409).json({
         success: false,
@@ -118,9 +123,8 @@ const createRequestController = async (req, res) => {
 
     // Send the new request to the assigned technician in real time.
     try {
-      const [rider, service] = await Promise.all([
+      const [rider] = await Promise.all([
         User.findById(req.user._id).select("name"),
-        Service.findById(serviceId).select("name"),
       ]);
 
       const requestForSocket = {
