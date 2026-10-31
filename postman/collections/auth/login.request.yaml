@@ -7,9 +7,13 @@ body:
 
     \    \r
 
-    \    \"email\":\"rasel121@gmail.com\",\r
+    \   \"email\":\"alaminhossain1997.web@gmail.com\",\r
 
-    \    \"password\":\"123456\"\r
+    \    \"password\":\"123456789\"\r
 
     }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZGZiOWUwZjVkOWRlZTg3ZTRlMDg2OSIsImVtYWlsIjoiYWxhbWluaG9zc2FpbjE5OTcud2ViQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5MzQ3MjM3NCwiZXhwIjoxNzkzNTU4Nzc0fQ.JMwBIZKpc9GYqg3-aDGs7kM6VuvypEeKHKtuFrgp0CE
 order: 1134362388500648

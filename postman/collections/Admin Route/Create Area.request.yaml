@@ -1,0 +1,23 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/admin/create
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Uttara\",\r
+
+    \  \"slug\": \"uttara\",\r
+
+    \  \"division\": \"Dhaka\",\r
+
+    \  \"district\": \"Dhaka\",\r
+
+    \  \"upazila\": \"Uttara\"\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0plg}}"
+order: 1790968570617
