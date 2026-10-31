@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/admin/area/all_areas?page=1&limit=10&search=uttara&isActive=true
+method: GET
+queryParams:
+  page: "1"
+  limit: "10"
+  search: uttara
+  isActive: "true"
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: http://localhost:8000/api/v1/admin/area/all_areas
+order: 1790968571617
