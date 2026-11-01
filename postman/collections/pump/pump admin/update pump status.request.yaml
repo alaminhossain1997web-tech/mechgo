@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/pump/my_pumps/update_status6ae78e9fc5b07c3e6b80ac10
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"isOpen\": true\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_11x5}}"
+order: 4000

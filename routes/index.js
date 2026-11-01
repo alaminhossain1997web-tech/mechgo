@@ -3,6 +3,7 @@ const authRoute = require("./authRouts/index");
 const tecnicianRoutes = require("./tecnicianRoutes/index")
 const serviceRoute = require("./serviceRoutes/index")
 const requestRoute = require("./requestRoutes/index")
+const pumpAdmin = require("./pumpAdmin/index")
 const adminRoute = require("./adminRoutes/index")
 const protect = require("../middlwares/protect");
 const router = express.Router()
@@ -15,7 +16,12 @@ router.use(base_url,protect,serviceRoute)
 
 //User Route
 router.use(base_url,protect,requestRoute)
-//Admin route
+
+//Pump Admin Route
+router.use(base_url,protect,pumpAdmin)
+
+
+//Pothseba Admin route
 router.use(base_url,protect,adminRoute)
 
 module.exports = router

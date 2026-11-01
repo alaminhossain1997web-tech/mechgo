@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/pump/my_pumps
+method: GET
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_11x5}}"
+order: 2000

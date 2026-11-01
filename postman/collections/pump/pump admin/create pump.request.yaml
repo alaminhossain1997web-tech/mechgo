@@ -1,0 +1,51 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/pump/create
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"name\": \"Fuel Station\",\r
+
+    \  \"description\": \"Modern fuel station in Uttara Dhaka.\",\r
+
+    \  \"phone\": \"01712345678\",\r
+
+    \  \"email\": \"fuel@example.com\",\r
+
+    \  \"address\": \"Dhaka.\",\r
+
+    \  \"lat\": 23.8924153,\r
+
+    \  \"lng\": 90.3667713,\r
+
+    \  \"fuelTypes\": [\r
+
+    \    \"Petrol\",\r
+
+    \    \"Octane\",\r
+
+    \    \"Diesel\"\r
+
+    \  ],\r
+
+    \  \"facilities\": [\r
+
+    \    \"Restroom\",\r
+
+    \    \"Prayer Room\",\r
+
+    \    \"Air Pump\",\r
+
+    \    \"ATM\"\r
+
+    \  ]\r
+
+    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0t1s}}"
+order: 1000

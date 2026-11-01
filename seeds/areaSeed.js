@@ -1,377 +1,123 @@
 
-const mongoose = require("mongoose");
 require("dotenv").config();
 
+const mongoose = require("mongoose");
 const Area = require("../models/Area/areaSchema");
 
-const ADMIN_ID = process.env.SEED_ADMIN_ID;
-const MONGO_URI = process.env.DB_URL;
+// Uttara Area Data
+const areas = [
+  {
+    name: "Uttara",
+    slug: "uttara",
+    division: "Dhaka",
+    district: "Dhaka",
+    isActive: true,
 
-const areaGroups = {
-  // Dhaka North City Corporation
-  Uttara: [
-    "Uttara Sector 1",
-    "Uttara Sector 2",
-    "Uttara Sector 3",
-    "Uttara Sector 4",
-    "Uttara Sector 5",
-    "Uttara Sector 6",
-    "Uttara Sector 7",
-    "Uttara Sector 8",
-    "Uttara Sector 9",
-    "Uttara Sector 10",
-    "Uttara Sector 11",
-    "Uttara Sector 12",
-    "Uttara Sector 13",
-    "Uttara Sector 14",
-    "Abdullahpur",
-    "House Building",
-    "Azampur",
-    "Airport",
-    "Kawla",
-    "Ashkona",
-    "Dakshinkhan",
-    "Uttarkhan",
-    "Diabari",
-  ],
-
-  Mirpur: [
-    "Mirpur 1",
-    "Mirpur 2",
-    "Mirpur 6",
-    "Mirpur 7",
-    "Mirpur 10",
-    "Mirpur 11",
-    "Mirpur 12",
-    "Pallabi",
-    "Rupnagar",
-    "Kazipara",
-    "Shewrapara",
-    "Senpara Parbata",
-    "Kafrul",
-    "Ibrahimpur",
-    "Vashantek",
-    "Kalshi",
-    "Baunia",
-    "Shah Ali",
-    "Pirerbag",
-    "Tolarbag",
-    "Paikpara",
-    "Darus Salam",
-    "Gabtoli",
-    "Kallyanpur",
-  ],
-
-  Gulshan: [
-    "Gulshan 1",
-    "Gulshan 2",
-    "Banani",
-    "Baridhara",
-    "Baridhara DOHS",
-    "Niketan",
-    "Mohakhali",
-    "Wireless Gate",
-    "Karail",
-    "Shahjadpur",
-    "Nadda",
-    "Kalachandpur",
-    "Kuril",
-    "Khilkhet",
-    "Nikunja 1",
-    "Nikunja 2",
-  ],
-
-  Badda: [
-    "North Badda",
-    "Middle Badda",
-    "South Badda",
-    "Merul Badda",
-    "Aftabnagar",
-    "Rampura",
-    "East Rampura",
-    "West Rampura",
-    "Banasree",
-    "Hatirjheel",
-    "Ulon",
-    "Haji Para",
-    "Beraid",
-  ],
-
-  Mohammadpur: [
-    "Mohammadpur",
-    "Adabor",
-    "Shyamoli",
-    "Lalmatia",
-    "Bosila",
-    "Rayer Bazar",
-    "Katasur",
-    "Geneva Camp",
-    "Town Hall",
-  ],
-
-  Tejgaon: [
-    "Tejgaon",
-    "Tejgaon Industrial Area",
-    "Farmgate",
-    "Karwan Bazar",
-    "Nakhalpara",
-    "Tejturi Bazar",
-    "Agargaon",
-    "Sher-e-Bangla Nagar",
-    "Taltola",
-    "Bijoy Sarani",
-  ],
-
-  // Dhaka South City Corporation
-  Dhanmondi: [
-    "Dhanmondi",
-    "Kalabagan",
-    "Jigatola",
-    "Satmasjid Road",
-    "Green Road",
-    "Elephant Road",
-    "New Market",
-    "Azimpur",
-    "Science Lab",
-  ],
-
-  Motijheel: [
-    "Motijheel",
-    "Paltan",
-    "Kakrail",
-    "Fakirapool",
-    "Shantinagar",
-    "Segunbagicha",
-    "Bijoynagar",
-    "Arambagh",
-    "Dilkusha",
-    "Naya Paltan",
-  ],
-
-  OldDhaka: [
-    "Lalbagh",
-    "Chawkbazar",
-    "Bangshal",
-    "Kotwali",
-    "Wari",
-    "Sutrapur",
-    "Gandaria",
-    "Narinda",
-    "Hazaribagh",
-    "Kamrangirchar",
-    "Islampur",
-    "Sadarghat",
-    "Shakhari Bazar",
-    "Tanti Bazar",
-    "English Road",
-  ],
-
-  Khilgaon: [
-    "Khilgaon",
-    "Malibagh",
-    "Chowdhury Para",
-    "Goran",
-    "Basabo",
-    "Sabujbagh",
-    "Manda",
-    "Mugda",
-    "Maniknagar",
-    "Shahjahanpur",
-    "Tikatuli",
-  ],
-
-  Jatrabari: [
-    "Jatrabari",
-    "Sayedabad",
-    "Dhania",
-    "Kajla",
-    "Shanir Akhra",
-    "Rayerbagh",
-    "Matuail",
-    "Demra",
-    "Donia",
-    "Jurain",
-    "Postogola",
-    "Kamalapur",
-    "Gopibagh",
-    "Dayaganj",
-  ],
-
-  //Gazipur 
-
-    Tongi: [
-    "Tongi",
-    "Tongi Bazar",
-    "College Gate",
-    "Cherag Ali",
-    "Station Road",
-    "Mill Gate",
-    "Tongi Bridge",
-    "Ershad Nagar",
-  ],
-
-  Pubail: [
-    "Pubail",
-    "Pubail Bazar",
-    "Harinal",
-    "Majukhan",
-    "Mirer Bazar",
-  ],
-
-  Gacha: [
-    "Gacha",
-    "Board Bazar",
-    "National University",
-    "Chandana",
-    "Bhadam",
-    "Baimail",
-  ],
-
-  Gazipur: [
-    "Joydebpur",
-    "Rajbari",
-    "Rajbari Road",
-    "Shibbari",
-    "Chandana Chowrasta",
-    "Gazipur Chowrasta",
-  ],
-
-  Kaultia: [
-    "Kaultia",
-    "Bhadun",
-    "Boro Bari",
-    "Baria",
-    "Mirzapur",
-  ],
-
-  Basan: [
-    "Basan",
-    "Basan Road",
-    "Bhogra",
-    "Maleker Bari",
-    "Signboard",
-  ],
-
-  Konabari: [
-    "Konabari",
-    "Konabari Bazar",
-    "Kashimpur Road",
-    "Baghia",
-    "Jarun",
-  ],
-
-  Kashimpur: [
-    "Kashimpur",
-    "Zirani Bazar",
-    "Mouchak Road",
-    "Hatimara",
-  ],
-
-  Kaliakair: [
-    "Kaliakair",
-    "Chandra",
-    "Mouchak",
-    "Safipur",
-    "Fulbaria",
-    "Boali",
-  ],
-
-  Sreepur: [
-    "Sreepur",
-    "Mawna",
-    "Bormi",
-    "Telihati",
-    "Rajabari",
-    "Kewa",
-  ],
-
-  Kapasia: [
-    "Kapasia",
-    "Taragonj",
-    "Tok",
-    "Barishaba",
-    "Ghagotia",
-  ],
-
-  Kaliganj: [
-    "Kaliganj",
-    "Nagari",
-    "Tumilia",
-    "Jamalpur",
-    "Moktarpur",
-  ],
-
-  "Gazipur Sadar": [
-    "Bhawalgarh",
-    "Pirujali",
-    "Mirzapur",
-    "Baria",
-  ],
-};
-
-const generateSlug = (name) =>
-  name
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
+    boundary: {
+      type: "MultiPolygon",
+      coordinates: [
+        [
+          [
+            [90.3667713, 23.8924153],
+            [90.3672402, 23.8920102],
+            [90.3678518, 23.8950085],
+            [90.3746133, 23.8935661],
+            [90.3768169, 23.8970042],
+            [90.3843772, 23.8971255],
+            [90.3889194, 23.8902635],
+            [90.391299, 23.8821192],
+            [90.3933128, 23.8801392],
+            [90.3971448, 23.8811168],
+            [90.4005505, 23.8816683],
+            [90.4032197, 23.8814814],
+            [90.4098026, 23.8813846],
+            [90.4131493, 23.8825827],
+            [90.4165891, 23.8853776],
+            [90.421331, 23.8866522],
+            [90.4248243, 23.8902523],
+            [90.4280254, 23.8924757],
+            [90.4330771, 23.8891905],
+            [90.4420449, 23.8903031],
+            [90.459297, 23.8679829],
+            [90.4530592, 23.8572469],
+            [90.4396146, 23.8552734],
+            [90.4260582, 23.8538919],
+            [90.4129403, 23.8509063],
+            [90.4064877, 23.8567358],
+            [90.4071107, 23.8539181],
+            [90.4030541, 23.8556595],
+            [90.4005781, 23.856694],
+            [90.3982413, 23.8603009],
+            [90.3932688, 23.8615463],
+            [90.3852714, 23.8568282],
+            [90.3877265, 23.8466701],
+            [90.366426, 23.8479108],
+            [90.3447372, 23.8533126],
+            [90.3494969, 23.8597234],
+            [90.3506255, 23.8726976],
+            [90.3563082, 23.8806988],
+            [90.3585069, 23.8827256],
+            [90.3600885, 23.8866031],
+            [90.36702, 23.8902982],
+            [90.3667338, 23.8920648],
+            [90.3667713, 23.8924153]
+          ]
+        ]
+      ]
+    }
+  }
+];
 
 const seedAreas = async () => {
   try {
-    if (!MONGO_URI) {
-      throw new Error("MONGO_URI is missing from .env");
+    // Environment validation
+    if (!process.env.DB_URL) {
+      throw new Error("DB_URL is missing in .env file");
     }
 
-    if (!ADMIN_ID || !mongoose.isValidObjectId(ADMIN_ID)) {
-      throw new Error("Valid SEED_ADMIN_ID is required in .env");
+    if (!process.env.SEED_ADMIN_ID) {
+      throw new Error("SEED_ADMIN_ID is missing in .env file");
     }
 
-    await mongoose.connect(MONGO_URI);
+    if (!mongoose.Types.ObjectId.isValid(process.env.SEED_ADMIN_ID)) {
+      throw new Error("SEED_ADMIN_ID is not a valid MongoDB ObjectId");
+    }
 
-    console.log("MongoDB connected successfully.");
+    // Connect MongoDB
+    await mongoose.connect(process.env.DB_URL);
+    console.log("MongoDB connected successfully");
 
-    const operations = [];
+    const adminId = new mongoose.Types.ObjectId(
+      process.env.SEED_ADMIN_ID
+    );
 
-    for (const [groupName, areaNames] of Object.entries(areaGroups)) {
-      for (const name of areaNames) {
-        const slug = generateSlug(name);
-
-        operations.push({
-          updateOne: {
-            filter: { slug },
-            update: {
-              $setOnInsert: {
-                name,
-                slug,
-                division: "Dhaka",
-                district: "Dhaka",
-                upazila: groupName,
-                isActive: true,
-                createdBy: ADMIN_ID,
-              },
-            },
-            upsert: true,
+    for (const areaData of areas) {
+      const area = await Area.findOneAndUpdate(
+        { slug: areaData.slug },
+        {
+          $set: {
+            ...areaData,
+            createdBy: adminId,
           },
-        });
-      }
+        },
+        {
+          upsert: true,
+          new: true,
+          runValidators: true,
+          setDefaultsOnInsert: true,
+        }
+      );
+
+      console.log(`Area seeded successfully: ${area.name}`);
     }
 
-    const result = await Area.bulkWrite(operations, {
-      ordered: false,
-    });
-
-    console.log("--------------------------------");
-    console.log("AREA SEED COMPLETED");
-    console.log("Total submitted:", operations.length);
-    console.log("Inserted:", result.upsertedCount);
-    console.log("Already existed:", result.matchedCount);
-    console.log("--------------------------------");
+    console.log("All areas seeded successfully");
   } catch (error) {
-    console.error("AREA SEED ERROR:", error);
+    console.error("Area seeding failed:", error.message);
+    process.exitCode = 1;
   } finally {
     await mongoose.disconnect();
-    console.log("MongoDB disconnected.");
+    console.log("MongoDB disconnected");
   }
 };
 

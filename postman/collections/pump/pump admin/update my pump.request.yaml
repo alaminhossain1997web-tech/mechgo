@@ -1,0 +1,29 @@
+$kind: http-request
+url: http://localhost:8000/api/v1/pump/my_pumps/Update_my_pumps6ae78e9fc5b07c3e6b80ac10
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"phone\": \"01812345678\",\r
+
+    \  \"description\": \"Updated fuel station description.\",\r
+
+    \  \"facilities\": [\r
+
+    \    \"Restroom\",\r
+
+    \    \"Prayer Room\",\r
+
+    \    \"ATM\",\r
+
+    \    \"Car Wash\"\r
+
+    \  ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_11x5}}"
+order: 3000

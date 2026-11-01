@@ -1,4 +1,23 @@
 $kind: http-request
-url: ""
-method: GET
+url: http://localhost:8000/api/v1/admin/area/update_areas/6ae6414247776a0e3aa9c31f
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Talotia\",\r
+
+    \  \"slug\": \"Talotia\",\r
+
+    \  \"division\": \"Dhaka\",\r
+
+    \  \"district\": \"Gazipur\",\r
+
+    \  \"upazila\": \"Pubail\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0wly}}"
 order: 1790968573617
