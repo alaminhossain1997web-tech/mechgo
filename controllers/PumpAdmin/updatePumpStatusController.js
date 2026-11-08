@@ -51,7 +51,7 @@ const updatePumpStatusController = async (req, res) => {
           _id: pump._id,
           name: pump.name,
           isOpen: pump.isOpen,
-          verificationStatus: pump.verificationStatus,
+          approvalStatus: pump.approvalStatus,
           isActive: pump.isActive,
         },
       });
@@ -59,7 +59,7 @@ const updatePumpStatusController = async (req, res) => {
 
     //Only approved pumps can be opened
     if (isOpen === true) {
-      if (pump.verificationStatus !== "approved") {
+      if (pump.approvalStatus !== "approved") {
         return res.status(403).json({
           success: false,
           message:
@@ -91,7 +91,7 @@ const updatePumpStatusController = async (req, res) => {
         name: pump.name,
         isOpen: pump.isOpen,
         isActive: pump.isActive,
-        verificationStatus: pump.verificationStatus,
+        approvalStatus: pump.approvalStatus,
       },
     });
   } catch (error) {

@@ -49,17 +49,17 @@ const getMyPumpsController = async (req, res) => {
     }
 
     // Filter by verification status
-    if (req.query.verificationStatus) {
+    if (req.query.approvalStatus) {
       const allowedStatuses = ["pending", "approved", "rejected"];
 
-      if (!allowedStatuses.includes(req.query.verificationStatus)) {
+      if (!allowedStatuses.includes(req.query.approvalStatus)) {
         return res.status(400).json({
           success: false,
           message: "Invalid verification status.",
         });
       }
 
-      filter.verificationStatus = req.query.verificationStatus;
+      filter.approvalStatus = req.query.approvalStatus;
     }
 
     // Filter by Open / Close status
@@ -107,17 +107,17 @@ const getMyPumpsController = async (req, res) => {
 
       Pump.countDocuments({
         createdBy: ownerId,
-        verificationStatus: "pending",
+        approvalStatus: "pending",
       }),
 
       Pump.countDocuments({
         createdBy: ownerId,
-        verificationStatus: "approved",
+        approvalStatus: "approved",
       }),
 
       Pump.countDocuments({
         createdBy: ownerId,
-        verificationStatus: "rejected",
+        approvalStatus: "rejected",
       }),
 
       Pump.countDocuments({

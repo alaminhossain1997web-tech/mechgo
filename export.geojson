@@ -1,0 +1,2489 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-06T21:08:06Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/141466267",
+      "properties": {
+        "@id": "node/141466267",
+        "alt_name": "Uttara Model Town",
+        "name": "উত্তরা",
+        "name:bn": "উত্তরা",
+        "name:en": "Uttara",
+        "place": "suburb",
+        "wikidata": "Q7903381",
+        "wikipedia": "en:Uttara Model Town (3rd Phase)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3926893,
+          23.8693275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/141466268",
+      "properties": {
+        "@id": "node/141466268",
+        "name": "আশুলিয়া",
+        "name:bn": "আশুলিয়া",
+        "name:en": "Ashulia",
+        "place": "suburb",
+        "wikidata": "Q4806112",
+        "wikimedia_commons": "Category:Ashulia",
+        "wikipedia": "bn:আশুলিয়া"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3289577,
+          23.8969898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/264032548",
+      "properties": {
+        "@id": "node/264032548",
+        "name": "বারিধারা",
+        "name:bn": "বারিধারা",
+        "name:en": "Baridhara",
+        "name:hi": "बारीधारा",
+        "place": "suburb",
+        "wikidata": "Q4860713",
+        "wikipedia": "bn:বারিধারা"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4196081,
+          23.8028663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/264889126",
+      "properties": {
+        "@id": "node/264889126",
+        "name": "বসুন্ধরা আবাসিক এলাকা",
+        "name:bn": "বসুন্ধরা আবাসিক এলাকা",
+        "name:en": "Bashundhara Residential Area",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4368229,
+          23.8189265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/364769764",
+      "properties": {
+        "@id": "node/364769764",
+        "name": "নিকেতন",
+        "name:bn": "নিকেতন",
+        "name:en": "Niketan",
+        "name:hi": "निकेतन",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.409755,
+          23.7733159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/379839732",
+      "properties": {
+        "@id": "node/379839732",
+        "is_in:city": "Dhaka",
+        "name": "গাবতলী",
+        "name:bn": "গাবতলী",
+        "name:en": "Gabtali",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3437343,
+          23.7827707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/387550966",
+      "properties": {
+        "@id": "node/387550966",
+        "name": "প্রমিনেন্ট হাউজিং",
+        "name:bn": "প্রমিনেন্ট হাউজিং",
+        "name:en": "Prominent Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3535725,
+          23.7665373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/387552183",
+      "properties": {
+        "@id": "node/387552183",
+        "is_in:city": "Dhaka",
+        "name": "আদাবর",
+        "name:bn": "আদাবর",
+        "name:en": "Adabar",
+        "name:hi": "अदाबर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3574638,
+          23.7735835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/391701399",
+      "properties": {
+        "@id": "node/391701399",
+        "name": "গোয়ালটেক",
+        "name:bn": "গোয়ালটেক",
+        "name:en": "Goaltek",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4069082,
+          23.877637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/642560699",
+      "properties": {
+        "@id": "node/642560699",
+        "name": "বনশ্রী",
+        "name:bn": "বনশ্রী",
+        "name:en": "Banasree",
+        "name:hi": "वनश्री",
+        "place": "suburb",
+        "wikidata": "Q4853953",
+        "wikipedia": "bn:বনশ্রী",
+        "wikipedia:en": "Banasree"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4312774,
+          23.7617123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3104950871",
+      "properties": {
+        "@id": "node/3104950871",
+        "name": "মিরাসপাড়া",
+        "name:bn": "মিরাসপাড়া",
+        "name:en": "Miraspur",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.418379,
+          23.892026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3104950872",
+      "properties": {
+        "@id": "node/3104950872",
+        "name": "পূর্ব আর্শিপুর",
+        "name:bn": "পূর্ব আর্শিপুর",
+        "name:en": "East Arishpur",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.409803,
+          23.887975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3104950873",
+      "properties": {
+        "@id": "node/3104950873",
+        "name": "পূর্ব আরিচপুর",
+        "name:bn": "পূর্ব আরিচপুর",
+        "name:en": "Purbo Arichpur",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4054148,
+          23.8885075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3808575870",
+      "properties": {
+        "@id": "node/3808575870",
+        "name": "কল্যাণপুর",
+        "name:bn": "কল্যাণপুর",
+        "name:en": "Kallyanpur",
+        "name:hi": "कल्याणपुर",
+        "place": "suburb",
+        "wikidata": "Q6353987",
+        "wikimedia_commons": "Category:Kallyanpur",
+        "wikipedia": "en:Kallyanpur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3613321,
+          23.7806848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4009099573",
+      "properties": {
+        "@id": "node/4009099573",
+        "name": "পলাশবাগ",
+        "name:bn": "পলাশবাগ",
+        "name:en": "Polashbagh",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.418997,
+          23.7627479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4362144964",
+      "properties": {
+        "@id": "node/4362144964",
+        "name": "তালতলা",
+        "name:bn": "তালতলা",
+        "name:en": "Taltola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3851783,
+          23.8337717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4594967589",
+      "properties": {
+        "@id": "node/4594967589",
+        "name": "শ্যামলী",
+        "name:bn": "শ্যামলী",
+        "name:en": "Shyamoli",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3654285,
+          23.7743951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4914582442",
+      "properties": {
+        "@id": "node/4914582442",
+        "name": "মোহাম্মদপুর",
+        "name:bn": "মোহাম্মদপুর",
+        "name:en": "Mohammadpur",
+        "name:hi": "मुहम्मदपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.363244,
+          23.7636683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4954685546",
+      "properties": {
+        "@id": "node/4954685546",
+        "name": "দক্ষিণ খান",
+        "name:bn": "দক্ষিণ খান",
+        "name:en": "Dokkhin Khan",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.422805,
+          23.8598562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5054370483",
+      "properties": {
+        "@id": "node/5054370483",
+        "name": "তালতলা",
+        "name:bn": "তালতলা",
+        "name:en": "Taltola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3750935,
+          23.7837151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5118172307",
+      "properties": {
+        "@id": "node/5118172307",
+        "name": "মহাখালী",
+        "name:bn": "মহাখালী",
+        "name:en": "Mohakhali",
+        "name:hi": "महाखाली",
+        "place": "suburb",
+        "wikidata": "Q6890845",
+        "wikimedia_commons": "Category:Mohakhali",
+        "wikipedia": "en:Mohakhali"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4046308,
+          23.7794681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5166963838",
+      "properties": {
+        "@id": "node/5166963838",
+        "is_in:city": "Dhaka",
+        "name": "বনানী",
+        "name:bn": "বনানী",
+        "name:en": "Banani",
+        "name:hi": "बनानी",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4076959,
+          23.790321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5167233263",
+      "properties": {
+        "@id": "node/5167233263",
+        "name": "বাড্ডা",
+        "name:bn": "বাড্ডা",
+        "name:en": "Badda",
+        "name:hi": "बड्डा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4305051,
+          23.7842159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5185291301",
+      "properties": {
+        "@id": "node/5185291301",
+        "name": "মাটিকাটা",
+        "name:bn": "মাটিকাটা",
+        "name:en": "Matikata",
+        "name:hi": "मटिकाटा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3952639,
+          23.8183777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6356798177",
+      "properties": {
+        "@id": "node/6356798177",
+        "name": "খিলক্ষেত",
+        "name:bn": "খিলক্ষেত",
+        "name:en": "Khilkhet",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4248321,
+          23.8316678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538843560",
+      "properties": {
+        "@id": "node/6538843560",
+        "name": "আহমেদ নগর",
+        "name:bn": "আহমেদ নগর",
+        "name:en": "Ahmed Nagar",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3600837,
+          23.7936268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538843561",
+      "properties": {
+        "@id": "node/6538843561",
+        "name": "শাহ আলী বাগ",
+        "name:bn": "শাহ আলী বাগ",
+        "name:en": "Shah Ali Bagh",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3563554,
+          23.7974702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538859550",
+      "properties": {
+        "@id": "node/6538859550",
+        "name": "মনিপুর",
+        "name:bn": "মনিপুর",
+        "name:en": "Monipur",
+        "name:hi": "मनिपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.366653,
+          23.8007553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538880411",
+      "properties": {
+        "@id": "node/6538880411",
+        "name": "বসতি হাউজিং",
+        "name:bn": "বসতি হাউজিং",
+        "name:en": "Basati Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3603177,
+          23.8003725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6538885127",
+      "properties": {
+        "@id": "node/6538885127",
+        "name": "বড়বাগ",
+        "name:bn": "বড়বাগ",
+        "name:en": "Borobagh",
+        "name:hi": "बड़ाबाग",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.362058,
+          23.8024879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6548910409",
+      "properties": {
+        "@id": "node/6548910409",
+        "name": "শের-এ-বাংলা নগর",
+        "name:bn": "শের-এ-বাংলা নগর",
+        "name:en": "Sher-E-Bangla Nagar",
+        "name:hi": "शेर-ए-बांग्ला नगर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3756784,
+          23.772786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6642896630",
+      "properties": {
+        "@id": "node/6642896630",
+        "name": "আব্দুল রফিক হাউজিং",
+        "name:bn": "আব্দুল রফিক হাউজিং",
+        "name:en": "Abdul Rafiq Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3517225,
+          23.768279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6642910891",
+      "properties": {
+        "@id": "node/6642910891",
+        "name": "মফিজবাগ হাউজিং",
+        "name:bn": "মফিজবাগ হাউজিং",
+        "name:en": "Mofizbagh Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3501741,
+          23.7684185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6717775240",
+      "properties": {
+        "@id": "node/6717775240",
+        "name": "পল্লবী",
+        "name:bn": "পল্লবী",
+        "name:en": "Pallabi",
+        "place": "suburb",
+        "wikidata": "Q3349084",
+        "wikipedia": "en:Pallabi Thana"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3579782,
+          23.8249938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6758638999",
+      "properties": {
+        "@id": "node/6758638999",
+        "name": "সেনপাড়া পর্বতা",
+        "name:bn": "সেনপাড়া পর্বতা",
+        "name:en": "Senpara Porbota",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3719391,
+          23.8041544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6784312557",
+      "properties": {
+        "@id": "node/6784312557",
+        "name": "মুক্তি হাউজিং",
+        "name:bn": "মুক্তি হাউজিং",
+        "name:en": "Mukti Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3717024,
+          23.7858083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904597258",
+      "properties": {
+        "@id": "node/6904597258",
+        "name": "ক্যাব কলোনি",
+        "name:bn": "ক্যাব কলোনি",
+        "name:en": "CAAB Colony",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4167101,
+          23.8453284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904613980",
+      "properties": {
+        "@id": "node/6904613980",
+        "name": "আমতলা",
+        "name:bn": "আমতলা",
+        "name:en": "Amtola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4253774,
+          23.8582776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904636076",
+      "properties": {
+        "@id": "node/6904636076",
+        "name": "কুর্মিটোলা",
+        "name:bn": "কুর্মিটোলা",
+        "name:en": "Kurmitola",
+        "name:hi": "कुर्मिटाला",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4057949,
+          23.8251851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904672400",
+      "properties": {
+        "@id": "node/6904672400",
+        "name": "তালতলা",
+        "name:en": "Taltola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4242843,
+          23.855133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904691212",
+      "properties": {
+        "@id": "node/6904691212",
+        "name": "আইনুসবাগ",
+        "name:en": "Ainusbag",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4241316,
+          23.8578374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904716435",
+      "properties": {
+        "@id": "node/6904716435",
+        "name": "নিকুঞ্জ ১",
+        "name:bn": "নিকুঞ্জ ১",
+        "name:en": "Nikunja 1",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4191806,
+          23.8242795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904716905",
+      "properties": {
+        "@id": "node/6904716905",
+        "name": "নিকুঞ্জ ২",
+        "name:bn": "নিকুঞ্জ ২",
+        "name:en": "Nikunja 2",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4171673,
+          23.8322982
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904801439",
+      "properties": {
+        "@id": "node/6904801439",
+        "name": "ভূঁইয়া পাড়া",
+        "name:bn": "ভূঁইয়া পাড়া",
+        "name:en": "Bhuiyan Para",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4241811,
+          23.8709818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904831436",
+      "properties": {
+        "@id": "node/6904831436",
+        "name": "মাউসাইদ",
+        "name:bn": "মাউসাইদ",
+        "name:en": "Mausaid",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4412072,
+          23.8942063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904846587",
+      "properties": {
+        "@id": "node/6904846587",
+        "name": "কোটবাড়ী বাজার",
+        "name:bn": "কোটবাড়ী বাজার",
+        "name:en": "Kotbari Bazar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4072432,
+          23.8809825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904846588",
+      "properties": {
+        "@id": "node/6904846588",
+        "name": "ফায়দাবাদ",
+        "name:bn": "ফায়দাবাদ",
+        "name:en": "Faydabad",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4121849,
+          23.8775745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904982115",
+      "properties": {
+        "@id": "node/6904982115",
+        "name": "আমাইয়া",
+        "name:bn": "আমাইয়া",
+        "name:en": "Amaia",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4594609,
+          23.8693245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904982117",
+      "properties": {
+        "@id": "node/6904982117",
+        "name": "পোড়াদিয়া",
+        "name:en": "Poradia",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4591782,
+          23.8653857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6904982118",
+      "properties": {
+        "@id": "node/6904982118",
+        "name": "বেপারী পাড়া",
+        "name:en": "Bepari Para",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4548557,
+          23.8619795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6905005795",
+      "properties": {
+        "@id": "node/6905005795",
+        "name": "উত্তর খান",
+        "name:bn": "উত্তর খান",
+        "name:en": "Uttar Khan",
+        "name:hi": "उत्तर खान",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4349121,
+          23.8731531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8889514796",
+      "properties": {
+        "@id": "node/8889514796",
+        "name": "শিমুলতলা",
+        "name:bn": "শিমুলতলা",
+        "name:en": "Shimultola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3654816,
+          23.7885732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8948933297",
+      "properties": {
+        "@id": "node/8948933297",
+        "name": "ঝিলপাড়",
+        "name:bn": "ঝিলপাড়",
+        "name:en": "Jhilpar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3650313,
+          23.7870863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8948933299",
+      "properties": {
+        "@id": "node/8948933299",
+        "name": "বউ বাজার",
+        "name:bn": "বউ বাজার",
+        "name:en": "Bow Bazar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3619843,
+          23.7890822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8953925035",
+      "properties": {
+        "@id": "node/8953925035",
+        "name": "মিরপুর",
+        "name:bn": "মিরপুর",
+        "name:en": "Mirpur",
+        "name:hi": "मीरपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3640891,
+          23.8123629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8968735495",
+      "properties": {
+        "@id": "node/8968735495",
+        "name": "আগারগাঁও",
+        "name:bn": "আগারগাঁও",
+        "name:en": "Agargaon",
+        "name:hi": "अगरगांव",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3762317,
+          23.781597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8968772336",
+      "properties": {
+        "@id": "node/8968772336",
+        "name": "কাজীপাড়া",
+        "name:bn": "কাজীপাড়া",
+        "name:en": "Kazipara",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3726036,
+          23.7992493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8968799603",
+      "properties": {
+        "@id": "node/8968799603",
+        "name": "শেওড়াপাড়া",
+        "name:bn": "শেওড়াপাড়া",
+        "name:en": "Shewrapara",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3751652,
+          23.7924342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8973762524",
+      "properties": {
+        "@id": "node/8973762524",
+        "name": "ফলপট্টি",
+        "name:bn": "ফলপট্টি",
+        "name:en": "Folpotti",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3680624,
+          23.8061192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8973762525",
+      "properties": {
+        "@id": "node/8973762525",
+        "name": "কলওয়ালা পাড়া",
+        "name:bn": "কলওয়ালা পাড়া",
+        "name:en": "Kolwala Para",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3543634,
+          23.7982712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8973762526",
+      "properties": {
+        "@id": "node/8973762526",
+        "addr:city": "Dhaka",
+        "name": "শাহ সাহেব নগর",
+        "name:bn": "শাহ সাহেব নগর",
+        "name:en": "Shah Shaheb Nogor",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.356698,
+          23.7892641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8982494282",
+      "properties": {
+        "@id": "node/8982494282",
+        "name": "হাবুলের পুকুরপাড়",
+        "name:bn": "হাবুলের পুকুরপাড়",
+        "name:en": "Habuler Pukurpar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3603047,
+          23.7929478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8989397855",
+      "properties": {
+        "@id": "node/8989397855",
+        "name": "আমতলা",
+        "name:bn": "আমতলা",
+        "name:en": "Amtola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3676719,
+          23.7846745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8989423001",
+      "properties": {
+        "@id": "node/8989423001",
+        "name": "ইব্রাহিমপুর",
+        "name:bn": "ইব্রাহিমপুর",
+        "name:en": "Ibrahimpur",
+        "name:hi": "इब्राहिमपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3843326,
+          23.7953947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9024430198",
+      "properties": {
+        "@id": "node/9024430198",
+        "name": "বিজলি মহল্লা",
+        "name:bn": "বিজলি মহল্লা",
+        "name:en": "Bijli Moholla",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3610782,
+          23.7700636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9024430199",
+      "properties": {
+        "@id": "node/9024430199",
+        "name": "আজিজ মহল্লা",
+        "name:bn": "আজিজ মহল্লা",
+        "name:en": "Aziz Moholla",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3614945,
+          23.7677944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9024489330",
+      "properties": {
+        "@id": "node/9024489330",
+        "name": "তেজগাঁও",
+        "name:bn": "তেজগাঁও",
+        "name:en": "Tejgaon",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3912992,
+          23.7628204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9027812715",
+      "properties": {
+        "@id": "node/9027812715",
+        "name": "রামপুরা",
+        "name:bn": "রামপুরা",
+        "name:en": "Rampura",
+        "name:hi": "रामपुरा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4205675,
+          23.7626126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9028978729",
+      "properties": {
+        "@id": "node/9028978729",
+        "name": "শাহজাদপুর",
+        "name:bn": "শাহজাদপুর",
+        "name:en": "Shahjadpur",
+        "name:hi": "शाहजादपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4242805,
+          23.7919138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9029057082",
+      "properties": {
+        "@id": "node/9029057082",
+        "name": "সাতারকুল",
+        "name:bn": "সাতারকুল",
+        "name:en": "Satarkul",
+        "name:hi": "सतरकुल",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4459859,
+          23.7860655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9029090354",
+      "properties": {
+        "@id": "node/9029090354",
+        "name": "ভাটারা",
+        "name:bn": "ভাটারা",
+        "name:en": "Bhatara",
+        "name:hi": "भटारा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4312809,
+          23.7997239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9029141717",
+      "properties": {
+        "@id": "node/9029141717",
+        "name": "টোলারবাগ",
+        "name:bn": "টোলারবাগ",
+        "name:en": "Tolarbag",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.352055,
+          23.7890992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9031188306",
+      "properties": {
+        "@id": "node/9031188306",
+        "name": "নাখালপাড়া",
+        "name:bn": "নাখালপাড়া",
+        "name:en": "Nakhalpara",
+        "name:hi": "नखलपाड़ा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3960119,
+          23.7688388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9031188308",
+      "properties": {
+        "@id": "node/9031188308",
+        "name": "পাইকপাড়া",
+        "name:bn": "পাইকপাড়া",
+        "name:en": "Paikpara",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3610923,
+          23.7884405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9031188309",
+      "properties": {
+        "@id": "node/9031188309",
+        "name": "পীরেরবাগ",
+        "name:bn": "পীরেরবাগ",
+        "name:en": "Pirerbag",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3666203,
+          23.7901781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9031306963",
+      "properties": {
+        "@id": "node/9031306963",
+        "name": "কাফরুল",
+        "name:bn": "কাফরুল",
+        "name:en": "Kafrul",
+        "name:hi": "काफ़रुल",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3856222,
+          23.7891562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9033906917",
+      "properties": {
+        "@id": "node/9033906917",
+        "name": "কুড়িল",
+        "name:bn": "কুড়িল",
+        "name:en": "Kuril",
+        "name:hi": "कुड़िल",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4221294,
+          23.8181379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9033978368",
+      "properties": {
+        "@id": "node/9033978368",
+        "name": "নুরের চালা",
+        "name:bn": "নুরের চালা",
+        "name:en": "Nurer Chala",
+        "name:hi": "नूरेर चाला",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4331606,
+          23.7957069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9034444571",
+      "properties": {
+        "@id": "node/9034444571",
+        "name": "আজমপুর",
+        "name:bn": "আজমপুর",
+        "name:en": "Azampur",
+        "name:hi": "आज़मपुर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4100105,
+          23.8665496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9035871157",
+      "properties": {
+        "@id": "node/9035871157",
+        "name": "বাউনিয়া",
+        "name:bn": "বাউনিয়া",
+        "name:en": "Baunia",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3870016,
+          23.8496408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9036243801",
+      "properties": {
+        "@id": "node/9036243801",
+        "name": "বিশিল",
+        "name:bn": "বিশিল",
+        "name:en": "Bishil",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3499241,
+          23.7962741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9037174038",
+      "properties": {
+        "@id": "node/9037174038",
+        "name": "নবাবেরবাগ",
+        "name:bn": "নবাবেরবাগ",
+        "name:en": "Nobaberbag",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3413192,
+          23.8089595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9037174042",
+      "properties": {
+        "@id": "node/9037174042",
+        "name": "লালকুঠি",
+        "name:bn": "লালকুঠি",
+        "name:en": "Lalkuthi",
+        "name:hi": "लालकुठी",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3465441,
+          23.7894836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9037252045",
+      "properties": {
+        "@id": "node/9037252045",
+        "name": "লালমাটি",
+        "name:bn": "লালমাটি",
+        "name:en": "Lalmati",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.377726,
+          23.8183169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9039591054",
+      "properties": {
+        "@id": "node/9039591054",
+        "name": "জোয়ার সাহারা",
+        "name:bn": "জোয়ার সাহারা",
+        "name:en": "Joar Sahara",
+        "name:hi": "जोआर सहारा",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4176535,
+          23.8151699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9044667576",
+      "properties": {
+        "@id": "node/9044667576",
+        "name": "চেয়ারম্যান বাড়ি",
+        "name:bn": "চেয়ারম্যান বাড়ি",
+        "name:en": "Chairman Bari",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4010004,
+          23.7881472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9052262819",
+      "properties": {
+        "@id": "node/9052262819",
+        "alt_name": "ঢাকা ক্যান্টনমেন্ট",
+        "name": "ঢাকা সেনানিবাস",
+        "name:bn": "ঢাকা সেনানিবাস",
+        "name:en": "Dhaka Cantonment",
+        "name:hi": "ढाका छावनी",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3986929,
+          23.8047931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9052262820",
+      "properties": {
+        "@id": "node/9052262820",
+        "name": "মিরপুর সেনানিবাস",
+        "name:bn": "মিরপুর সেনানিবাস",
+        "name:en": "Mirpur Cantonment",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.359597,
+          23.8389781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9065660512",
+      "properties": {
+        "@id": "node/9065660512",
+        "name": "দিয়াবাড়ি",
+        "name:bn": "দিয়াবাড়ি",
+        "name:en": "Diabari",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3674197,
+          23.8738492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9079656745",
+      "properties": {
+        "@id": "node/9079656745",
+        "is_in:suburb": "Mohammadpur",
+        "name": "ঢাকা উদ্যান",
+        "name:bn": "ঢাকা উদ্যান",
+        "name:en": "Dhaka Uddyan",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3439246,
+          23.763315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9116014681",
+      "properties": {
+        "@id": "node/9116014681",
+        "name": "ভাটুলিয়া",
+        "name:bn": "ভাটুলিয়া",
+        "name:en": "Bhatulia",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.381631,
+          23.8950823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9116014682",
+      "properties": {
+        "@id": "node/9116014682",
+        "name": "ধউর",
+        "name:bn": "ধউর",
+        "name:en": "Dhour",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3718678,
+          23.8911881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9119048413",
+      "properties": {
+        "@id": "node/9119048413",
+        "name": "মানিকদি",
+        "name:bn": "মানিকদি",
+        "name:en": "Manikdi",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3918119,
+          23.826222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9119065717",
+      "properties": {
+        "@id": "node/9119065717",
+        "name": "জিয়া কলোনি",
+        "name:bn": "জিয়া কলোনি",
+        "name:en": "Zia Colony",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4068731,
+          23.8185959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9120295435",
+      "properties": {
+        "@id": "node/9120295435",
+        "name": "বালুঘাট",
+        "name:bn": "বালুঘাট",
+        "name:en": "Balughat",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3904119,
+          23.8289374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9168989723",
+      "properties": {
+        "@id": "node/9168989723",
+        "name": "নন্দেরবাগ",
+        "name:bn": "নন্দেরবাগ",
+        "name:en": "Nonderbag",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3488531,
+          23.7834698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9168989724",
+      "properties": {
+        "@id": "node/9168989724",
+        "name": "বাতেন নগর",
+        "name:bn": "বাতেন নগর",
+        "name:en": "Baten Nagar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3487619,
+          23.786474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9169474120",
+      "properties": {
+        "@id": "node/9169474120",
+        "name": "আফতাবনগর",
+        "name:bn": "আফতাবনগর",
+        "name:en": "Aftabnagar",
+        "name:hi": "आफताबनगर",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.445198,
+          23.7657519
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9169606176",
+      "properties": {
+        "@id": "node/9169606176",
+        "name": "সোলমাইদ",
+        "name:bn": "সোলমাইদ",
+        "name:en": "Solmaid",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4334361,
+          23.8056692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9201915834",
+      "properties": {
+        "@id": "node/9201915834",
+        "name": "চেরাগ আলী",
+        "name:bn": "চেরাগ আলী",
+        "name:en": "Cherag Ali",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3991089,
+          23.9057737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9227024280",
+      "properties": {
+        "@id": "node/9227024280",
+        "name": "বাসুপাড়া",
+        "name:bn": "বাসুপাড়া",
+        "name:en": "Basupara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3447957,
+          23.785279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9331599949",
+      "properties": {
+        "@id": "node/9331599949",
+        "name": "নলভোগ",
+        "name:bn": "নলভোগ",
+        "name:en": "Nalbhog",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3755181,
+          23.8774872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9331599961",
+      "properties": {
+        "@id": "node/9331599961",
+        "name": "বরুয়া",
+        "name:bn": "বরুয়া",
+        "name:en": "Borua",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4438968,
+          23.8391755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9333465940",
+      "properties": {
+        "@id": "node/9333465940",
+        "name": "বটতলা",
+        "name:bn": "বটতলা",
+        "name:en": "Bottola",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3631266,
+          23.7876127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9333465941",
+      "properties": {
+        "@id": "node/9333465941",
+        "name": "সোনালি নগর",
+        "name:bn": "সোনালি নগর",
+        "name:en": "Sonali Nagar",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.36384,
+          23.7874164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9439896189",
+      "properties": {
+        "@id": "node/9439896189",
+        "name": "গুলশান",
+        "name:bn": "গুলশান",
+        "name:en": "Gulshan",
+        "name:hi": "गुलशन",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4155528,
+          23.7921765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9597015220",
+      "properties": {
+        "@id": "node/9597015220",
+        "name": "জাপান গার্ডেন সিটি",
+        "name:bn": "জাপান গার্ডেন সিটি",
+        "name:en": "Japan Garden City",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.357781,
+          23.764705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10105868844",
+      "properties": {
+        "@id": "node/10105868844",
+        "name": "তেজগাঁও শিল্প এলাকা",
+        "name:bn": "তেজগাঁও শিল্প এলাকা",
+        "name:en": "Tejgaon Industrial Area",
+        "name:hi": "तेजगांव औद्योगिक क्षेत्र",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.405798,
+          23.7648783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11050265853",
+      "properties": {
+        "@id": "node/11050265853",
+        "name": "গুপিপাড়া",
+        "name:bn": "গুপিপাড়া",
+        "name:en": "Gupipara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4243172,
+          23.7864424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11774841405",
+      "properties": {
+        "@id": "node/11774841405",
+        "name": "মোল্লাপাড়া",
+        "name:bn": "মোল্লাপাড়া",
+        "name:en": "Mollapara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3644375,
+          23.7952277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11903067063",
+      "properties": {
+        "@id": "node/11903067063",
+        "name": "ব্লক এ",
+        "name:bn": "ব্লক এ",
+        "name:en": "Block A",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3322363,
+          23.7797373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11903143307",
+      "properties": {
+        "@id": "node/11903143307",
+        "name": "ব্লক সি",
+        "name:bn": "ব্লক সি",
+        "name:en": "Block C",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3283462,
+          23.7796908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11991447441",
+      "properties": {
+        "@id": "node/11991447441",
+        "name": "অলি মিয়ার টেক",
+        "name:bn": "অলি মিয়ার টেক",
+        "name:en": "Oli Miar Tek",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3704756,
+          23.7895292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12908939555",
+      "properties": {
+        "@id": "node/12908939555",
+        "name": "প্রেমবাগান",
+        "name:bn": "প্রেমবাগান",
+        "name:en": "Prembagan",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4132396,
+          23.8569727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13288700113",
+      "properties": {
+        "@id": "node/13288700113",
+        "name": "National Tubes Colony",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4032369,
+          23.9003971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13306949201",
+      "properties": {
+        "@id": "node/13306949201",
+        "name": "খৃষ্টান পাড়া",
+        "name:en": "Christian Para",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3675067,
+          23.8044193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13987905514",
+      "properties": {
+        "@id": "node/13987905514",
+        "name": "জাহানাবাদ",
+        "name:bn": "জাহানাবাদ",
+        "name:en": "Jahanabad",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3406343,
+          23.7914748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13987962201",
+      "properties": {
+        "@id": "node/13987962201",
+        "name": "স্টাফ কোয়ার্টার",
+        "name:bn": "স্টাফ কোয়ার্টার",
+        "name:en": "Staff Quarrter",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3529854,
+          23.7901711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988017983",
+      "properties": {
+        "@id": "node/13988017983",
+        "name": "পূর্ব কাফরুল",
+        "name:bn": "পূর্ব কাফরুল",
+        "name:en": "East Kafrul",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3874049,
+          23.7875302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988050211",
+      "properties": {
+        "@id": "node/13988050211",
+        "name": "রজনীগন্ধা",
+        "name:bn": "রজনীগন্ধা",
+        "name:en": "Rojonigondha",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3895593,
+          23.7867065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988110468",
+      "properties": {
+        "@id": "node/13988110468",
+        "name": "সেনাপল্লী",
+        "name:bn": "সেনাপল্লী",
+        "name:en": "Senapolli",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3893662,
+          23.7981266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988110471",
+      "properties": {
+        "@id": "node/13988110471",
+        "name": "লালসরাই",
+        "name:bn": "লালসরাই",
+        "name:en": "Lalsorai",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3898125,
+          23.8031301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988167539",
+      "properties": {
+        "@id": "node/13988167539",
+        "name": "ভাষানটেক",
+        "name:bn": "ভাষানটেক",
+        "name:en": "Bhashantek",
+        "place": "suburb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3898195,
+          23.8135866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988648795",
+      "properties": {
+        "@id": "node/13988648795",
+        "name": "রাজাবাড়ী",
+        "name:bn": "রাজাবাড়ী",
+        "name:en": "Rajabari",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3784194,
+          23.8910114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988656978",
+      "properties": {
+        "@id": "node/13988656978",
+        "name": "খানটেক",
+        "name:bn": "খানটেক",
+        "name:en": "Khantek",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3810115,
+          23.8654785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13988656979",
+      "properties": {
+        "@id": "node/13988656979",
+        "name": "বাদশারটেক",
+        "name:bn": "বাদশারটেক",
+        "name:en": "Badshartek",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3928904,
+          23.8620326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13990474846",
+      "properties": {
+        "@id": "node/13990474846",
+        "name": "পশ্চিম পীরেরবাগ",
+        "name:bn": "পশ্চিম পীরেরবাগ",
+        "name:en": "West Pirerbag",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3642081,
+          23.7892822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13990548229",
+      "properties": {
+        "@id": "node/13990548229",
+        "name": "ঢাকা হাউজিং",
+        "name:bn": "ঢাকা হাউজিং",
+        "name:en": "Dhaka Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3596009,
+          23.7763777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13990609727",
+      "properties": {
+        "@id": "node/13990609727",
+        "name": "টিক্কাপাড়া",
+        "name:bn": "টিক্কাপাড়া",
+        "name:en": "Tikkapara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3597811,
+          23.7700217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13990652717",
+      "properties": {
+        "@id": "node/13990652717",
+        "name": "খানপাড়া",
+        "name:bn": "খানপাড়া",
+        "name:en": "Khanpara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4218881,
+          23.8342452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13995445429",
+      "properties": {
+        "@id": "node/13995445429",
+        "name": "দাসপাড়া",
+        "name:bn": "দাসপাড়া",
+        "name:en": "Daspara",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.421356,
+          23.7673875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13995466389",
+      "properties": {
+        "@id": "node/13995466389",
+        "name": "বাগিচারটেক",
+        "name:bn": "বাগিচারটেক",
+        "name:en": "Bagichartek",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.413342,
+          23.7632926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14004600199",
+      "properties": {
+        "@id": "node/14004600199",
+        "name": "একতা হাউজিং",
+        "name:bn": "একতা হাউজিং",
+        "name:en": "Ekota Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3444002,
+          23.7662064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14004600200",
+      "properties": {
+        "@id": "node/14004600200",
+        "name": "প্রভাতি হাউজিং",
+        "name:bn": "প্রভাতি হাউজিং",
+        "name:en": "Provati Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3469237,
+          23.7685786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14029063935",
+      "properties": {
+        "@id": "node/14029063935",
+        "name": "কমফোর্ট হাউজিং",
+        "name:bn": "কমফোর্ট হাউজিং",
+        "name:en": "Comfort Housing",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.3489365,
+          23.774113
+        ]
+      }
+    }
+  ]
+}

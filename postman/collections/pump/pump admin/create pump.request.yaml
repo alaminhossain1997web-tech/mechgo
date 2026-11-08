@@ -3,47 +3,27 @@ url: http://localhost:8000/api/v1/pump/create
 method: POST
 body:
   type: json
-  content: "\r
-
-    {\r
-
-    \  \"name\": \"Fuel Station\",\r
-
-    \  \"description\": \"Modern fuel station in Uttara Dhaka.\",\r
-
-    \  \"phone\": \"01712345678\",\r
-
-    \  \"email\": \"fuel@example.com\",\r
-
-    \  \"address\": \"Dhaka.\",\r
-
-    \  \"lat\": 23.8924153,\r
-
-    \  \"lng\": 90.3667713,\r
-
-    \  \"fuelTypes\": [\r
-
-    \    \"Petrol\",\r
-
-    \    \"Octane\",\r
-
-    \    \"Diesel\"\r
-
-    \  ],\r
-
-    \  \"facilities\": [\r
-
-    \    \"Restroom\",\r
-
-    \    \"Prayer Room\",\r
-
-    \    \"Air Pump\",\r
-
-    \    \"ATM\"\r
-
-    \  ]\r
-
-    }\r\n"
+  content: |-
+    {
+      "name": "Fuel Station",
+      "description": "Modern fuel station in Uttara Dhaka.",
+      "phone": "01712345678",
+      "email": "fuel@example.com",
+      "address": "Dhaka.",
+      "lat": 23.8924153,
+      "lng": 90.3667713,
+      "fuels": [
+        { "type": "Petrol", "price": 130, "available": true },
+        { "type": "Octane", "price": 135, "available": true },
+        { "type": "Diesel", "price": 109, "available": true }
+      ],
+      "facilities": [
+        "Restroom",
+        "Prayer Room",
+        "Air Pump",
+        "ATM"
+      ]
+    }
 auth:
   type: bearer
   credentials:

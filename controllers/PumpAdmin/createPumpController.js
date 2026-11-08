@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Pump = require("../../models/pumpSchema/pumpSchema");
-const Area = require("../../models/Area/areaSchema");
 const generateSlug = require("../../helpers/generateSlug");
+const findPumpAreas = require("../../helpers/findPumpAreas");
+const getPumpLocationName = require("../../helpers/getPumpLocationName");
 
 const createPumpController = async (req, res) => {
   try {
@@ -20,7 +21,7 @@ const createPumpController = async (req, res) => {
       address,
       lat,
       lng,
-      fuelTypes = [],
+      fuels = [],
       facilities = [],
     } = req.body;
 
@@ -62,14 +63,20 @@ const createPumpController = async (req, res) => {
       });
     }
 
-    // Validate fuelTypes
+    // Validate fuels
     if (
-      !Array.isArray(fuelTypes) ||
-      fuelTypes.some((item) => typeof item !== "string")
+      !Array.isArray(fuels) ||
+      fuels.some((item) =>
+        !item ||
+        !["Petrol", "Octane", "Diesel", "CNG", "LPG", "EV"].includes(item.type) ||
+        !Number.isFinite(Number(item.price)) ||
+        Number(item.price) < 0 ||
+        (item.available !== undefined && typeof item.available !== "boolean"),
+      )
     ) {
       return res.status(400).json({
         success: false,
-        message: "Fuel types must be an array of strings.",
+        message: "Fuels must be an array of valid fuel objects.",
       });
     }
 
@@ -113,24 +120,12 @@ const createPumpController = async (req, res) => {
     }
 
     //  Detect matching service areas using GPS
-    const matchedAreas = await Area.find({
-      isActive: true,
-      boundary: {
-        $geoIntersects: {
-          $geometry: {
-            type: "Point",
-            coordinates: [longitude, latitude],
-          },
-        },
-      },
-    })
-      .select("_id name division district")
-      .sort({ _id: 1 });
+    const matchedAreas = await findPumpAreas(longitude, latitude);
 
     if (!matchedAreas.length) {
       return res.status(400).json({
         success: false,
-        message: "No active service area found for this pump location.",
+        message: "Service not available in this location",
       });
     }
 
@@ -147,6 +142,11 @@ const createPumpController = async (req, res) => {
 
     // Automatically generate area IDs
     const areaIds = matchedAreas.map((area) => area._id);
+    const locationName = await getPumpLocationName(
+      longitude,
+      latitude,
+      primaryArea.name,
+    );
 
     const pump = await Pump.create({
       name: name.trim(),
@@ -159,6 +159,7 @@ const createPumpController = async (req, res) => {
       // Automatically detected from Area
       division: primaryArea.division,
       district: primaryArea.district,
+      locationName,
       areaIds,
 
       // GeoJSON location
@@ -167,11 +168,15 @@ const createPumpController = async (req, res) => {
         coordinates: [longitude, latitude],
       },
 
-      fuelTypes,
+      fuels: fuels.map((fuel) => ({
+        type: fuel.type,
+        price: Number(fuel.price),
+        available: fuel.available !== false,
+      })),
       facilities,
 
       // Backend-controlled fields
-      verificationStatus: "pending",
+      approvalStatus: "pending",
       isOpen: false,
       isActive: true,
 

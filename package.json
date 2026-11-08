@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "node --test",
-    "seed:areas": "node seeds/areaSeed.js"
+    "seed:areas": "node seeds/areaSeed.js",
+    "migrate:pumps": "node scripts/migratePumpFields.js",
+    "seed:dncc": "node seeds/seedDnccAreas.js"
   },
   "keywords": [],
   "author": "",

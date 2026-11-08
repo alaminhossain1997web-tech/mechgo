@@ -3,6 +3,6 @@ const updateArea = require("../../../controllers/adminContoller/Area_Controller/
 
 const router = express.Router();
 
-router.patch("/update_areas/:id",updateArea)
+router.patch("/update_areas/:areaId",updateArea)
 
 module.exports = router

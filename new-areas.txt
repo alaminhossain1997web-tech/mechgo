@@ -1,0 +1,22 @@
+  {
+    name: "কমফোর্ট হাউজিং",
+    slug: "",
+    division: "Dhaka",
+    district: "Dhaka",
+    isActive: true,
+    boundary: {
+      type: "Polygon",
+      coordinates: [[[90.3439365,23.769113],[90.35393649999999,23.769113],[90.35393649999999,23.779113],[90.3439365,23.779113],[90.3439365,23.769113]]]
+    },
+  },
+  {
+    name: "National Tubes Colony",
+    slug: "national-tubes-colony",
+    division: "Dhaka",
+    district: "Dhaka",
+    isActive: true,
+    boundary: {
+      type: "Polygon",
+      coordinates: [[[90.3982369,23.8953971],[90.40823689999999,23.8953971],[90.40823689999999,23.9053971],[90.3982369,23.9053971],[90.3982369,23.8953971]]]
+    },
+  },

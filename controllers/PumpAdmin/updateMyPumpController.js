@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Pump = require("../../models/pumpSchema/pumpSchema");
-const Area = require("../../models/Area/areaSchema");
 const generateSlug = require("../../helpers/generateSlug");
+const findPumpAreas = require("../../helpers/findPumpAreas");
+const getPumpLocationName = require("../../helpers/getPumpLocationName");
 
 const updateMyPumpController = async (req, res) => {
   try {
@@ -37,8 +38,6 @@ const updateMyPumpController = async (req, res) => {
     }
 
     //Allowed values
-    const allowedFuelTypes = ["Petrol", "Octane", "Diesel", "CNG", "LPG", "EV"];
-
     const allowedFacilities = [
       "Restroom",
       "Prayer Room",
@@ -58,22 +57,10 @@ const updateMyPumpController = async (req, res) => {
       address,
       lat,
       lng,
-      fuelTypes,
       facilities,
     } = req.body;
 
-    // Detect whether admin approval is required
-    const approvalRequiredFields = [
-      "name",
-      "address",
-      "lat",
-      "lng",
-      "fuelTypes",
-    ];
-
-    const requiresApproval = approvalRequiredFields.some((field) =>
-      Object.prototype.hasOwnProperty.call(req.body, field),
-    );
+    let requiresApproval = false;
 
     //Update Pump Name and Slug
     if (name !== undefined) {
@@ -105,6 +92,7 @@ const updateMyPumpController = async (req, res) => {
         });
       }
 
+      requiresApproval = name.trim() !== pump.name;
       pump.name = name.trim();
       pump.slug = slug;
     }
@@ -121,7 +109,7 @@ const updateMyPumpController = async (req, res) => {
       pump.description = description.trim();
     }
 
-    //Update Phone (No approval required)
+    //Update Phone (Approval required when changed)
     if (phone !== undefined) {
       if (typeof phone !== "string" || !phone.trim()) {
         return res.status(400).json({
@@ -130,6 +118,7 @@ const updateMyPumpController = async (req, res) => {
         });
       }
 
+      requiresApproval = requiresApproval || phone.trim() !== pump.phone;
       pump.phone = phone.trim();
     }
 
@@ -154,22 +143,8 @@ const updateMyPumpController = async (req, res) => {
         });
       }
 
+      requiresApproval = requiresApproval || address.trim() !== pump.address;
       pump.address = address.trim();
-    }
-
-    //Update Fuel Types (Approval required)
-    if (fuelTypes !== undefined) {
-      if (
-        !Array.isArray(fuelTypes) ||
-        fuelTypes.some((item) => !allowedFuelTypes.includes(item))
-      ) {
-        return res.status(400).json({
-          success: false,
-          message: "Invalid fuel types provided.",
-        });
-      }
-
-      pump.fuelTypes = [...new Set(fuelTypes)];
     }
 
     //Update Facilities (No approval required)
@@ -217,37 +192,23 @@ const updateMyPumpController = async (req, res) => {
         });
       }
 
-      const matchedAreas = await Area.find({
-        isActive: true,
-        boundary: {
-          $geoIntersects: {
-            $geometry: {
-              type: "Point",
-              coordinates: [longitude, latitude],
-            },
-          },
-        },
-      }).select("_id name division district");
+      const matchedAreas = await findPumpAreas(longitude, latitude);
 
       if (!matchedAreas.length) {
         return res.status(400).json({
           success: false,
-          message: "No active service area found for this location.",
+          message: "Service not available in this location",
         });
       }
 
       const primaryArea = matchedAreas[0];
 
-      // Ensure detected areas have consistent location data
-      if (
-        !primaryArea.division ||
-        !primaryArea.district ||
-        matchedAreas.some(
-          (area) =>
-            area.division !== primaryArea.division ||
-            area.district !== primaryArea.district,
-        )
-      ) {
+      const coordinatesChanged =
+        longitude !== pump.location.coordinates[0] ||
+        latitude !== pump.location.coordinates[1];
+      requiresApproval = requiresApproval || coordinatesChanged;
+
+      if (!primaryArea.division || !primaryArea.district) {
         return res.status(400).json({
           success: false,
           message: "Detected areas have inconsistent location information.",
@@ -262,11 +223,21 @@ const updateMyPumpController = async (req, res) => {
       pump.areaIds = matchedAreas.map((area) => area._id);
       pump.division = primaryArea.division;
       pump.district = primaryArea.district;
+      if (coordinatesChanged) {
+        pump.locationName = await getPumpLocationName(
+          longitude,
+          latitude,
+          primaryArea.name,
+        );
+      }
     }
 
     //Apply admin approval only when necessary
     if (requiresApproval) {
-      pump.verificationStatus = "pending";
+      pump.approvalStatus = "pending";
+      pump.approvedBy = null;
+      pump.approvedAt = null;
+      pump.rejectionReason = "";
       pump.isOpen = false;
     }
 
@@ -278,8 +249,6 @@ const updateMyPumpController = async (req, res) => {
       message: requiresApproval
         ? "Pump updated successfully. Waiting for admin approval."
         : "Pump information updated successfully.",
-
-      approvalRequired: requiresApproval,
 
       data: pump,
     });

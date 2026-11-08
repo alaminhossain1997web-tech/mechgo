@@ -5,7 +5,7 @@ const Module = require("node:module");
 const { after, before, test } = require("node:test");
 const express = require("express");
 const http = require("node:http");
-const realProtect = require("../middlwares/protect");
+const realProtect = require("../middlewares/protect");
 
 const dispatches = [];
 const installMock = (modulePath, exports) => {
@@ -18,7 +18,7 @@ const installMock = (modulePath, exports) => {
 
 // Keep this a route-mount test: bypass auth and database access, then assert
 // the request reaches the status controller through the complete router tree.
-installMock(require.resolve("../middlwares/protect"), (_req, _res, next) => next());
+installMock(require.resolve("../middlewares/protect"), (_req, _res, next) => next());
 installMock(
   require.resolve("../controllers/requestController/updateRequestStatusController"),
   (req, res) => {

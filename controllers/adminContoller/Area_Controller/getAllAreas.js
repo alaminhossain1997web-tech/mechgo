@@ -1,5 +1,9 @@
 
+const mongoose = require("mongoose");
 const Area = require("../../../models/Area/areaSchema");
+
+const escapeRegex = (value) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const getAllAreas = async (req, res) => {
   try {
@@ -8,6 +12,10 @@ const getAllAreas = async (req, res) => {
       division,
       district,
       upazila,
+      type,
+      parentAreaId,
+      zoneNo,
+      wardNo,
       isActive,
       includeBoundary = "false",
       page = 1,
@@ -16,45 +24,96 @@ const getAllAreas = async (req, res) => {
 
     const filter = {};
 
-    // 1. Search filter
+    // Search
     if (search?.trim()) {
-      const searchRegex = new RegExp(
-        search.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-        "i"
-      );
+      const regex = new RegExp(escapeRegex(search.trim()), "i");
 
       filter.$or = [
-        { name: searchRegex },
-        { slug: searchRegex },
-        { district: searchRegex },
+        { name: regex },
+        { nameBn: regex },
+        { slug: regex },
+        { district: regex },
+        { cityCorporation: regex },
       ];
     }
 
-    // 2. Division filter
+    // Division
     if (division?.trim()) {
       filter.division = {
-        $regex: division.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+        $regex: escapeRegex(division.trim()),
         $options: "i",
       };
     }
 
-    // 3. District filter
+    // District
     if (district?.trim()) {
       filter.district = {
-        $regex: district.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+        $regex: escapeRegex(district.trim()),
         $options: "i",
       };
     }
 
-    // 4. Upazila filter
+    // Upazila
     if (upazila?.trim()) {
       filter.upazila = {
-        $regex: upazila.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+        $regex: escapeRegex(upazila.trim()),
         $options: "i",
       };
     }
 
-    // 5. Active status filter
+    // Area type
+    if (type) {
+      if (!["Zone", "Ward", "Neighbourhood"].includes(type)) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid area type.",
+        });
+      }
+
+      filter.type = type;
+    }
+
+    // Parent
+    if (parentAreaId) {
+      if (!mongoose.Types.ObjectId.isValid(parentAreaId)) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid parentAreaId.",
+        });
+      }
+
+      filter.parentAreaId = parentAreaId;
+    }
+
+    // Zone number
+    if (zoneNo !== undefined) {
+      const number = Number(zoneNo);
+
+      if (!Number.isInteger(number) || number < 1) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid zoneNo.",
+        });
+      }
+
+      filter.zoneNo = number;
+    }
+
+    // Ward number
+    if (wardNo !== undefined) {
+      const number = Number(wardNo);
+
+      if (!Number.isInteger(number) || number < 1) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid wardNo.",
+        });
+      }
+
+      filter.wardNo = number;
+    }
+
+    // Active status
     if (isActive !== undefined) {
       if (!["true", "false"].includes(isActive)) {
         return res.status(400).json({
@@ -66,7 +125,7 @@ const getAllAreas = async (req, res) => {
       filter.isActive = isActive === "true";
     }
 
-    // 6. Boundary query validation
+    // Boundary
     if (!["true", "false"].includes(includeBoundary)) {
       return res.status(400).json({
         success: false,
@@ -74,9 +133,8 @@ const getAllAreas = async (req, res) => {
       });
     }
 
-    // 7. Pagination
+    // Pagination
     const currentPage = Math.max(1, parseInt(page, 10) || 1);
-
     const perPage = Math.min(
       100,
       Math.max(1, parseInt(limit, 10) || 10)
@@ -84,31 +142,35 @@ const getAllAreas = async (req, res) => {
 
     const skip = (currentPage - 1) * perPage;
 
-    // 8. Query
-    let areaQuery = Area.find(filter)
+    let query = Area.find(filter)
+      .populate("parentAreaId", "name type zoneNo wardNo")
       .populate("createdBy", "name email")
-      .sort({ createdAt: -1 })
+      .sort({ type: 1, zoneNo: 1, wardNo: 1, createdAt: -1 })
       .skip(skip)
       .limit(perPage);
 
-    // Exclude large boundary data by default
     if (includeBoundary === "false") {
-      areaQuery = areaQuery.select("-boundary");
+      query = query.select("-boundary");
     }
 
-    const [areas, totalAreas] = await Promise.all([
-      areaQuery,
+    const [areas, total] = await Promise.all([
+      query.lean(),
       Area.countDocuments(filter),
     ]);
 
     return res.status(200).json({
       success: true,
       message: "Areas retrieved successfully.",
-      total: totalAreas,
+      total,
       pagination: {
         currentPage,
         limit: perPage,
-        totalPages: Math.ceil(totalAreas / perPage),
+        totalPages: Math.ceil(total / perPage),
+      },
+      filters: {
+        type: type || null,
+        zoneNo: zoneNo || null,
+        wardNo: wardNo || null,
       },
       data: areas,
     });

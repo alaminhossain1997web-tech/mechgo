@@ -58,6 +58,12 @@ const pumpSchema = new mongoose.Schema(
       trim: true,
     },
 
+    locationName: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+
     // Automatically detected service areas
     areaIds: {
       type: [
@@ -106,22 +112,65 @@ const pumpSchema = new mongoose.Schema(
       },
     },
 
-    // Available Fuel Types
-    fuelTypes: {
+    // Fuel availability and pricing
+    fuels: {
       type: [
-        {
-          type: String,
-          enum: [
-            "Petrol",
-            "Octane",
-            "Diesel",
-            "CNG",
-            "LPG",
-            "EV",
-          ],
-        },
+        new mongoose.Schema(
+          {
+            type: {
+              type: String,
+              enum: ["Petrol", "Octane", "Diesel", "CNG", "LPG", "EV"],
+              required: true,
+            },
+            price: { type: Number, min: 0, required: true },
+            available: { type: Boolean, default: true },
+          },
+          { _id: false },
+        ),
       ],
       default: [],
+    },
+
+    fuelsUpdatedAt: {
+      type: Date,
+      default: null,
+    },
+
+    approvedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+    },
+
+    approvedAt: {
+      type: Date,
+      default: null,
+    },
+
+    rejectionReason: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+
+    // Admin approval workflow
+    approvalStatus: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
+    },
+
+    avgRating: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 5,
+    },
+
+    reviewCount: {
+      type: Number,
+      default: 0,
+      min: 0,
     },
 
     // Available Facilities
@@ -156,13 +205,6 @@ const pumpSchema = new mongoose.Schema(
       default: true,
     },
 
-    // Admin verification
-    verificationStatus: {
-      type: String,
-      enum: ["pending", "approved", "rejected"],
-      default: "pending",
-    },
-
     // Pump Owner account
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
@@ -195,7 +237,9 @@ pumpSchema.index({ createdBy: 1 });
 pumpSchema.index({
   isOpen: 1,
   isActive: 1,
-  verificationStatus: 1,
+  approvalStatus: 1,
 });
+
+pumpSchema.index({ areaIds: 1, approvalStatus: 1, isActive: 1 });
 
 module.exports = mongoose.model("Pump", pumpSchema);

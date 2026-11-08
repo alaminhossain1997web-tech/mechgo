@@ -18,7 +18,7 @@ const pumpData = [
     "description": "24-hour station at Technical More, Mirpur",
     "lat": 23.7820885,
     "lng": 90.3516873,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -34,7 +34,7 @@ const pumpData = [
     "description": "24-hour station near Gabtoli, popular with bikers",
     "lat": 23.7826272,
     "lng": 90.3470198,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -47,7 +47,7 @@ const pumpData = [
     "description": "24-hour station on Mirpur Rd",
     "lat": 23.8342424,
     "lng": 90.3402711,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -60,7 +60,7 @@ const pumpData = [
     "description": "24-hour station near Gabtoli bus terminal",
     "lat": 23.7819034,
     "lng": 90.3504822,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -75,7 +75,7 @@ const pumpData = [
     "description": "24-hour CNG and octane station near Gabtoli",
     "lat": 23.7823209,
     "lng": 90.348876,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "CNG"
     ],
@@ -91,7 +91,7 @@ const pumpData = [
     "description": "24-hour station on Dhaka-Mymensingh Hwy, Uttara",
     "lat": 23.8548041,
     "lng": 90.4054262,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -109,7 +109,7 @@ const pumpData = [
     "description": "Fuel and CNG station in Uttara",
     "lat": 23.8804705,
     "lng": 90.400521,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel",
       "CNG"
@@ -124,7 +124,7 @@ const pumpData = [
     "description": "24-hour station in Uttara with car wash",
     "lat": 23.8685588,
     "lng": 90.4000045,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -137,7 +137,7 @@ const pumpData = [
     "description": "24-hour station, card payment accepted",
     "lat": 23.8796091,
     "lng": 90.3562248,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -153,7 +153,7 @@ const pumpData = [
     "description": "24-hour station with parking space",
     "lat": 23.891965,
     "lng": 90.3621548,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -166,7 +166,7 @@ const pumpData = [
     "description": "Old station near Banglabhaban, open about 6:30 AM to 10 PM, card payment accepted",
     "lat": 23.7807307,
     "lng": 90.3995398,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -179,7 +179,7 @@ const pumpData = [
     "description": "24-hour station near Mohakhali bus stand, card payment accepted",
     "lat": 23.7730254,
     "lng": 90.3999632,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Diesel",
       "CNG",
@@ -195,7 +195,7 @@ const pumpData = [
     "description": "24-hour fuel and CNG station in Mohakhali",
     "lat": 23.7746239,
     "lng": 90.3988613,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -211,7 +211,7 @@ const pumpData = [
     "description": "24-hour station, very busy, Padma Oil dealership",
     "lat": 23.7662879,
     "lng": 90.3891122,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -224,7 +224,7 @@ const pumpData = [
     "description": "24-hour Jamuna Oil dealer, cash only",
     "lat": 23.7765434,
     "lng": 90.398124,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel"
     ],
@@ -238,7 +238,7 @@ const pumpData = [
     "description": "24-hour station with car wash, cash preferred",
     "lat": 23.7608229,
     "lng": 90.3723799,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -253,7 +253,7 @@ const pumpData = [
     "description": "24-hour station at Asad Gate, card payment accepted",
     "lat": 23.760426,
     "lng": 90.373258,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -266,7 +266,7 @@ const pumpData = [
     "description": "Roadside pump with U-turn facility, serves bikes and cars",
     "lat": 23.7363153,
     "lng": 90.3845838,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -277,7 +277,7 @@ const pumpData = [
     "description": "24-hour busy station on Sadarghat-Gabtoli Rd",
     "lat": 23.7450551,
     "lng": 90.3596867,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -288,7 +288,7 @@ const pumpData = [
     "description": "24-hour station with car wash",
     "lat": 23.7412098,
     "lng": 90.3600919,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -303,7 +303,7 @@ const pumpData = [
     "description": "24-hour station near Motijheel and Kamalapur with car wash",
     "lat": 23.7276195,
     "lng": 90.4216969,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "CNG"
@@ -320,7 +320,7 @@ const pumpData = [
     "description": "Old 24-hour station near Kazi Nazrul Islam Ave, always busy",
     "lat": 23.7418577,
     "lng": 90.3955078,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -335,7 +335,7 @@ const pumpData = [
     "description": "24-hour station; reviews say gas only, no octane currently",
     "lat": 23.759656,
     "lng": 90.3990085,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -348,7 +348,7 @@ const pumpData = [
     "description": "24-hour CNG station",
     "lat": 23.770837,
     "lng": 90.4246328,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": [
@@ -363,7 +363,7 @@ const pumpData = [
     "description": "Small, busy CNG and petroleum station",
     "lat": 23.781002,
     "lng": 90.4255368,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "CNG"
     ],
@@ -377,7 +377,7 @@ const pumpData = [
     "description": "Old 24-hour station on DIT Rd",
     "lat": 23.7570521,
     "lng": 90.4172015,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel",
       "CNG"
@@ -392,7 +392,7 @@ const pumpData = [
     "description": "24-hour station, card payment accepted",
     "lat": 23.7288098,
     "lng": 90.4868934,
-    "fuelTypes": [
+    "fuels": [
       "Petrol"
     ],
     "facilities": []
@@ -405,7 +405,7 @@ const pumpData = [
     "description": "24-hour station on Dhaka-Demra Hwy",
     "lat": 23.7106434,
     "lng": 90.4396616,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -416,7 +416,7 @@ const pumpData = [
     "description": "Large 24-hour CNG and LPG station with food corner and big parking",
     "lat": 23.7074781,
     "lng": 90.4350352,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "CNG",
@@ -432,7 +432,7 @@ const pumpData = [
     "description": "24-hour highway station, CNG not available at the moment per reviews",
     "lat": 23.706186,
     "lng": 90.4437722,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -449,7 +449,7 @@ const pumpData = [
     "description": "Small CNG station, open about 6:15 AM to 10:45 PM",
     "lat": 23.7710834,
     "lng": 90.4017684,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -462,7 +462,7 @@ const pumpData = [
     "description": "24-hour small station, supply can be irregular",
     "lat": 23.750342,
     "lng": 90.4578578,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "LPG"
     ],
@@ -476,7 +476,7 @@ const pumpData = [
     "description": "24-hour small petrol and CNG station",
     "lat": 23.7423969,
     "lng": 90.4169665,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "CNG"
@@ -491,7 +491,7 @@ const pumpData = [
     "description": "One of the oldest stations, 24-hour; reviews say fuel goes to govt vehicles in the afternoon",
     "lat": 23.7424386,
     "lng": 90.416887,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -507,7 +507,7 @@ const pumpData = [
     "description": "One of the oldest stations in Dhaka, with car wash; CNG reported closed",
     "lat": 23.7323903,
     "lng": 90.3866464,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -522,7 +522,7 @@ const pumpData = [
     "description": "CNG station with generator backup",
     "lat": 23.7243375,
     "lng": 90.3967656,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": [
@@ -537,7 +537,7 @@ const pumpData = [
     "description": "24-hour station with car wash and service centre, mostly bikers",
     "lat": 23.8002786,
     "lng": 90.3566033,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel"
     ],
@@ -551,7 +551,7 @@ const pumpData = [
     "description": "Open about 6 AM to 12 AM, card payment accepted",
     "lat": 23.7988586,
     "lng": 90.3870327,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -562,7 +562,7 @@ const pumpData = [
     "description": "24-hour station at Gabtoli with Nabil bus counter",
     "lat": 23.7827321,
     "lng": 90.3467925,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -573,7 +573,7 @@ const pumpData = [
     "description": "24-hour CNG and LPG station, no octane",
     "lat": 23.8284907,
     "lng": 90.3645467,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "LPG"
     ],
@@ -589,7 +589,7 @@ const pumpData = [
     "description": "Large CNG station with 8 nozzles and CNG conversion workshop",
     "lat": 23.8295261,
     "lng": 90.3642869,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -602,7 +602,7 @@ const pumpData = [
     "description": "24-hour station in Kalyanpur with car wash",
     "lat": 23.7791203,
     "lng": 90.3583485,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -617,7 +617,7 @@ const pumpData = [
     "description": "24-hour CNG station with 4 nozzles",
     "lat": 23.8061111,
     "lng": 90.3738889,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -630,7 +630,7 @@ const pumpData = [
     "description": "24-hour CNG station, usually long queue",
     "lat": 23.8126464,
     "lng": 90.3672728,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -643,7 +643,7 @@ const pumpData = [
     "description": "24-hour station next to Kuril flyover, known for octane",
     "lat": 23.8275838,
     "lng": 90.4197783,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel"
     ],
@@ -657,7 +657,7 @@ const pumpData = [
     "description": "24-hour station on Dhaka-Mymensingh Hwy, card payment accepted",
     "lat": 23.8275094,
     "lng": 90.4198085,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "LPG"
     ],
@@ -671,7 +671,7 @@ const pumpData = [
     "description": "CNG station beside Dhaka Regency Hotel",
     "lat": 23.829062,
     "lng": 90.4195447,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "Diesel"
     ],
@@ -685,7 +685,7 @@ const pumpData = [
     "description": "24-hour CNG station near airport road",
     "lat": 23.8358592,
     "lng": 90.4183146,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -698,7 +698,7 @@ const pumpData = [
     "description": "CNG station on Pragati Ave",
     "lat": 23.8179175,
     "lng": 90.4211692,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "Octane"
     ],
@@ -712,7 +712,7 @@ const pumpData = [
     "description": "24-hour station with bus counters, car wash and workshop, card payment accepted",
     "lat": 23.7786724,
     "lng": 90.3572833,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -727,7 +727,7 @@ const pumpData = [
     "description": "24-hour station near Technical More, cash and card accepted",
     "lat": 23.7826506,
     "lng": 90.3521016,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -743,7 +743,7 @@ const pumpData = [
     "description": "Petrol and CNG station, open about 7:30 AM to 10 PM",
     "lat": 23.7422752,
     "lng": 90.3955592,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "CNG"
     ],
@@ -757,7 +757,7 @@ const pumpData = [
     "description": "24-hour station beside Sayedabad bus terminal, mainly buses and trucks",
     "lat": 23.7126092,
     "lng": 90.4278388,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -773,7 +773,7 @@ const pumpData = [
     "description": "24-hour CNG station near Taltola",
     "lat": 23.7882045,
     "lng": 90.377116,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": [
@@ -788,7 +788,7 @@ const pumpData = [
     "description": "24-hour CNG and LPG station with conversion service and vehicle wash",
     "lat": 23.7477907,
     "lng": 90.4036094,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "LPG"
     ],
@@ -802,7 +802,7 @@ const pumpData = [
     "description": "Spacious station on Outer Circular Rd",
     "lat": 23.7489245,
     "lng": 90.4068059,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -813,7 +813,7 @@ const pumpData = [
     "description": "Open about 7 AM to 11 PM, card payment accepted, Padma Oil",
     "lat": 23.770208,
     "lng": 90.4082188,
-    "fuelTypes": [
+    "fuels": [
       "Octane"
     ],
     "facilities": []
@@ -826,7 +826,7 @@ const pumpData = [
     "description": "Small station near Gulistan",
     "lat": 23.726082,
     "lng": 90.411357,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -837,7 +837,7 @@ const pumpData = [
     "description": "Open about 4:30 AM to 1:30 AM, near Kamalapur",
     "lat": 23.7290145,
     "lng": 90.4288526,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "CNG",
       "LPG"
@@ -852,7 +852,7 @@ const pumpData = [
     "description": "24-hour CNG station with machine car wash and servicing",
     "lat": 23.7237395,
     "lng": 90.4284623,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -865,7 +865,7 @@ const pumpData = [
     "description": "24-hour station with CNG conversion centre, usually queue",
     "lat": 23.784236,
     "lng": 90.4256367,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "Octane"
     ],
@@ -879,7 +879,7 @@ const pumpData = [
     "description": "24-hour station at Abdullahpur",
     "lat": 23.8811092,
     "lng": 90.4001856,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "Diesel",
       "CNG",
@@ -895,7 +895,7 @@ const pumpData = [
     "description": "24-hour CNG station near Gabtoli",
     "lat": 23.7826318,
     "lng": 90.3501523,
-    "fuelTypes": [
+    "fuels": [
       "CNG",
       "Diesel"
     ],
@@ -909,7 +909,7 @@ const pumpData = [
     "description": "Large CNG station with car wash and repair",
     "lat": 23.7774583,
     "lng": 90.3625683,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": [
@@ -924,7 +924,7 @@ const pumpData = [
     "description": "Station on Abdullahpur Hwy, little data on Google Maps",
     "lat": 23.8948053,
     "lng": 90.3860417,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -935,7 +935,7 @@ const pumpData = [
     "description": "24-hour highway station",
     "lat": 23.8953895,
     "lng": 90.3772189,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel",
@@ -951,7 +951,7 @@ const pumpData = [
     "description": "24-hour LPG and CNG station on Dhaka-Ashulia Hwy",
     "lat": 23.8960544,
     "lng": 90.3849511,
-    "fuelTypes": [
+    "fuels": [
       "LPG",
       "CNG"
     ],
@@ -965,7 +965,7 @@ const pumpData = [
     "description": "24-hour station near Taltola bus stand, mainly CNG",
     "lat": 23.7839072,
     "lng": 90.3781895,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -978,7 +978,7 @@ const pumpData = [
     "description": "Small old station near New Market, open about 7 AM to 9 PM",
     "lat": 23.7321728,
     "lng": 90.3854345,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -995,7 +995,7 @@ const pumpData = [
     "description": "24-hour new station, card payment accepted",
     "lat": 23.7711911,
     "lng": 90.4253672,
-    "fuelTypes": [
+    "fuels": [
       "Octane",
       "LPG"
     ],
@@ -1009,7 +1009,7 @@ const pumpData = [
     "description": "Old station near Gulshan 1, open about 6 AM to 10 PM, with car servicing",
     "lat": 23.7808182,
     "lng": 90.4011056,
-    "fuelTypes": [
+    "fuels": [
       "Petrol",
       "Octane",
       "Diesel"
@@ -1024,7 +1024,7 @@ const pumpData = [
     "description": "24-hour CNG pump, little data on Google Maps",
     "lat": 23.699796,
     "lng": 90.3770284,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -1037,7 +1037,7 @@ const pumpData = [
     "description": "CNG station, reviews say cars not allowed",
     "lat": 23.6993635,
     "lng": 90.3604112,
-    "fuelTypes": [
+    "fuels": [
       "CNG"
     ],
     "facilities": []
@@ -1050,7 +1050,7 @@ const pumpData = [
     "description": "Fuel station in Keraniganj",
     "lat": 23.7013309,
     "lng": 90.3971017,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   },
   {
@@ -1061,7 +1061,7 @@ const pumpData = [
     "description": "Fuel station in Keraniganj, little data on Google Maps",
     "lat": 23.7014,
     "lng": 90.3927,
-    "fuelTypes": [],
+    "fuels": [],
     "facilities": []
   }
 ];
@@ -1103,7 +1103,7 @@ const seedPumps = async () => {
         description,
         lat,
         lng,
-        fuelTypes = [],
+        fuels = [],
         facilities = [],
       } = pump;
 
@@ -1148,7 +1148,7 @@ const seedPumps = async () => {
             },
           },
         },
-      }).select("_id name division district");
+      }).select("_id name division district upazila");
 
       if (!areas.length) {
         skippedPumps.push({
@@ -1159,7 +1159,8 @@ const seedPumps = async () => {
         continue;
       }
 
-      // Use the first matching Area as the primary Area
+      // Prefer the most specific upazila-level service area
+      areas.sort((a, b) => Number(Boolean(b.upazila)) - Number(Boolean(a.upazila)));
       const primaryArea = areas[0];
 
       const pumpDocument = {
@@ -1172,6 +1173,7 @@ const seedPumps = async () => {
 
         division: primaryArea.division,
         district: primaryArea.district,
+        locationName: primaryArea.name,
 
         areaIds: areas.map((area) => area._id),
 
@@ -1180,12 +1182,14 @@ const seedPumps = async () => {
           coordinates: [lng, lat],
         },
 
-        fuelTypes,
+        fuels: fuels.map((fuel) => typeof fuel === "string"
+          ? { type: fuel, price: 0, available: true }
+          : fuel),
         facilities,
 
         isOpen: false,
         isActive: true,
-        verificationStatus: "pending",
+        approvalStatus: "pending",
 
         createdBy: ADMIN_ID,
       };

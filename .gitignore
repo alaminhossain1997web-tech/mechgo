@@ -1,3 +1,8 @@
 node_modules/
 .env
 .postman/
+# Local database migration and E2E test scripts
+scripts/migratePumpFields.js
+scripts/pumpE2E.once.js
+scripts/pumpE2E.once.js
+scripts/createReviewIndexes.once.js
