@@ -6,8 +6,9 @@ const Area_route = require("./Area_route/index")
 const Pump_route = require("./pump/index")
 const Review_route = require("./review/index")
 const PendingRole = require("./User Role Assign Route/index")
+const list = require("./technicians list/index")
 const router = express.Router()
 
- router.use("/admin",adminPass,services,pending_technician,Area_route,Pump_route,Review_route,PendingRole)
+ router.use("/admin",adminPass,services,pending_technician,Area_route,Pump_route,Review_route,PendingRole,list)
 
 module.exports = router
