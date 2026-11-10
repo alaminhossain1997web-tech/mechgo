@@ -9,7 +9,7 @@ const approveTechnician = async (req, res) => {
       {
         verificationStatus: "approved",
         isOnline: false,
-        isAvailable: false,
+        isAvailable: true,
       },
       {
         new: true,
